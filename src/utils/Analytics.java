@@ -3,12 +3,15 @@ package utils;
 import models.Assessment;
 import models.Member;
 
+
 /**
  * Created by Paddym1991 on 02/05/2017.
  */
 public class Analytics
 {
 
+
+    private Member member;
 
     public Analytics ()
     {
@@ -22,21 +25,19 @@ public class Analytics
      */
     public static double calculateBMI (Member member, Assessment assessment)
     {
-        //TODO:
-       // bmiValue = toTwoDecimalPlaces(startingWeight / (height * height));
-       // return bmiValue;
-
-        return 0;
+        double bmiValue = toTwoDecimalPlaces(member.getStartingWeight() / (member.getHeight() * member.getHeight()));
+        return bmiValue;
+        //TODO: whats the deal with assessment parameter?
     }
 
     /**
      * The method truncates a double to 2 decimal places.
      */
+    //TODO: should this be static
     public static double toTwoDecimalPlaces(double num)
     {
         return (int)(num * 100) / 100.0;
     }
-
 
     /**
      * This method determines the BMI category that the member belongs to.
@@ -57,44 +58,42 @@ public class Analytics
      * @return <pre>The format of the String is similar to this (note the double quotes around the category):
      *      "NORMAL".</pre>
      */
-    /*
-    public static String determineBMICategory(double bmiValue)
+    //TODO: should this be static?
+    public String determineBMICategory(double bmiValue)
     {
-
-        if (calculateBMI() < 15)
+        if (bmiValue < 15)
         {
             return "VERY SEVERELY UNDERWEIGHT";
         }
-        else if ((calculateBMI() >= 15) && (calculateBMI() < 16))
+        else if ((bmiValue >= 15) && (bmiValue < 16))
         {
             return "SEVERELY UNDERWEIGHT";
         }
-        else if ((calculateBMI() >= 16) && (calculateBMI() < 18.5))
+        else if ((bmiValue >= 16) && (bmiValue < 18.5))
         {
             return "UNDERWEIGHT";
         }
-        else if ((calculateBMI() >= 18.5) && (calculateBMI() < 25))
+        else if ((bmiValue >= 18.5) && (bmiValue < 25))
         {
             return "NORMAL";
         }
-        else if ((calculateBMI() >= 25) && (calculateBMI() < 30))
+        else if ((bmiValue >= 25) && (bmiValue < 30))
         {
             return "OVERWEIGHT";
         }
-        else if ((calculateBMI() >= 30) && (calculateBMI() < 35))
+        else if ((bmiValue >= 30) && (bmiValue < 35))
         {
             return "MODERATELY OBESE";
         }
-        else if ((calculateBMI() >= 35) && (calculateBMI() < 40))
+        else if ((bmiValue >= 35) && (bmiValue < 40))
         {
             return "SEVERELY OBESE";
         }
-        else //(calculateBMI() >= 40)
+        else //(bmiValue >= 40)
         {
             return "VERY SEVERELY OBESE";
         }
     }
-    */
 
     /**
      * <pre>
@@ -104,30 +103,30 @@ public class Analytics
      *
      *  Note:   if no gender is specified, return the result of the female calculation.
      *  </pre>
-     *  @return Returns true if the result of the devine formula is within 2 kgs (inclusive) of the starting weight; fals if it is outside this range.
+     *  @return Returns true if the result of the devine formula is within 2 kgs (inclusive) of the starting weight; false if it is outside this range.
      */
-    /*
-    public static boolean isIdealBodyWeight(Member member, Assessment assessment)
+    //TODO: should this be static?
+    public boolean isIdealBodyWeight(Member member, Assessment assessment)
     {
         double heightToInches = convertHeightMetresToInches();
         int fiveFeet = 60;
         double idealBodyWeight = 0.0;
 
         if (heightToInches <= fiveFeet) {
-            if (gender.equals("M")) {
+            if (member.getGender().equals("M")) {
                 idealBodyWeight = 50;
             } else {
                 idealBodyWeight = 45.5;
             }
         } else {
-            if (gender.equals("M")) {
+            if (member.getGender().equals("M")) {
                 idealBodyWeight = 50 + (2.3 * (heightToInches - fiveFeet));
             } else {
                 idealBodyWeight = 45.5 + (2.3 * (heightToInches - fiveFeet));
             }
         }
 
-        if ((idealBodyWeight >= (startingWeight - 2)) && (idealBodyWeight <= (startingWeight + 2)))
+        if ((idealBodyWeight >= (member.getStartingWeight() - 2)) && (idealBodyWeight <= (member.getStartingWeight() + 2)))
         {
             return true;
         }
@@ -136,6 +135,34 @@ public class Analytics
             return false;
         }
     }
-    */
+
+    /**
+     * This method returns the member height converted from metres to inches.
+     *
+     * @return member height converted from metres to inches using the formula: meters multiplied by 39.37. The number returned is truncated to two decimal places.
+     */
+    public double convertHeightMetresToInches()
+    {
+        //double heightToInches = height * 39.37;
+        //return toTwoDecimalPlaces(heightToInches);
+        //TODO: created a member field at the top. is that ok?
+        return toTwoDecimalPlaces(member.getHeight() * 39.37);
+        //truncate this to 2 decimal places;
+    }
+
+    /**
+     * This method returns the member weight converted from KGs to pounds.
+     *
+     * @return member weight converted from KGs to pounds. The number returned is truncated to two decimal places.
+     */
+    public double convertWeightKGtoPounds()
+    {
+        //double weightToPounds = startingWeight * 2.2;
+        //return toTwoDecimalPlaces(weightToPounds);
+        //TODO: created a member field at the top. is that ok?
+        return toTwoDecimalPlaces(member.getStartingWeight() * 2.2);
+    }
+
+
 
 }
