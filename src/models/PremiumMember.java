@@ -15,6 +15,6 @@ public class PremiumMember extends Member
 
     public void chosenPackage(String packageChoice)
     {
-
+     //   super.chosenPackage = chosenPackage(packageChoice);
     }
 }

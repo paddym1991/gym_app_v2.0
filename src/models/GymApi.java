@@ -73,16 +73,16 @@ public class GymApi {
         return trainers;
     }
 
-    //TODO:
+    //if the size of the members array is greater than the index and is not negative, then it is a valid index.
     public boolean isValidMemberIndex(int index)
     {
-        return false;
+        return index >= 0 && index < numberOfMembers();
     }
 
-    //TODO:
+    //if the size of the trainers array is greater than the index and is not negative, then it is a valid index.
     public boolean isValidTrainerIndex(int index)
     {
-        return false;
+        return index >= 0 && index < numberOfTrainers();
     }
 
     //TODO:
@@ -217,7 +217,7 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-               // if (member.determineBMICategory().contains(category))
+          //      if (member.determineBMICategory().contains(category))
                 {
                     membersBMICategory = membersBMICategory + member.toString() + "\n\n";
                 }

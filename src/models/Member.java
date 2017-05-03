@@ -23,7 +23,6 @@ public abstract class Member extends Person
         {
             this.height = height;
         }
-
         else
         {
             this.height = 1;
@@ -40,7 +39,7 @@ public abstract class Member extends Person
 
         this.chosenPackage = chosenPackage;
 
-        this.assessment = assessment;
+       // this.assessment = assessment;
         //this.assessment = new HashMap<>();
     }
 

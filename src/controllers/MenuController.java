@@ -98,9 +98,35 @@ public class MenuController {
         System.out.println("  2) Update profile");
         System.out.println("  3) Progress");
         System.out.println("  0) Exit");
-        System.out.print("==>> ");
-        //input.nextLine();
         return input.getIntInput();
+    }
+
+    public void runMemberMenu()
+    {
+        int userOption = memberMenu();
+        while (userOption != 0)
+        {
+            switch (userOption)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default: System.out.println("\nInvalid option entered: " + userOption);
+                    break;
+            }
+            System.out.println("\nPress Enter to continue. . .");
+            input.getStringInput();
+            // input.nextLine();
+            //input.nextLine();
+            userOption = memberMenu();
+        }
+        System.out.println("Exiting...bye");
+        System.exit(0);
     }
 
     /*
@@ -125,9 +151,44 @@ public class MenuController {
         System.out.println("  7) Assessments");
         System.out.println("  8) Reports");
         System.out.println("  0) Exit");
-        System.out.print("==>> ");
-        //input.nextLine();
+
         return input.getIntInput();
+    }
+
+    public void runTrainerMenu()
+    {
+        int userOption = trainerMenu();
+        while (userOption != 0)
+        {
+            switch (userOption)
+            {
+                case 1: addMember();
+                    break;
+                case 2: gym.listMembers();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5: gym.listMembersWithIdealWeight();
+                    break;
+           //     case 6: gym.listBySpecificBMICategory(category);
+           //         break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                default: System.out.println("\nInvalid option entered: " + userOption);
+                    break;
+            }
+            System.out.println("\nPress Enter to continue. . .");
+            input.getStringInput();
+            // input.nextLine();
+            //input.nextLine();
+            userOption = trainerMenu();
+        }
+        System.out.println("Exiting...bye");
+        System.exit(0);
     }
 
     private void addMember()
