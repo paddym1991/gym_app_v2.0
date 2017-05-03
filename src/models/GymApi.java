@@ -11,10 +11,10 @@ public class GymApi {
     private ArrayList<Member> members;
     private ArrayList<Trainer> trainers;
 
-    public GymApi(ArrayList<Member> members, ArrayList<Trainer> trainers)
+    public GymApi()
     {
-        this.members = members;
-        this.trainers = trainers;
+        this.members = new ArrayList<Member>();
+        this.trainers = new ArrayList<Trainer>();
     }
 
     /**
@@ -153,7 +153,7 @@ public class GymApi {
             String membersIdealWeight = "";
             for (int index = 0; index < members.size(); index++)
             {
-                if(members.get(index).isIdealBodyWeight() == true)
+               // if(members.get(index).isIdealBodyWeight() == true)
                 {
                     membersIdealWeight =  membersIdealWeight + members.get(index).toString() + "\n\n";
                 }
@@ -217,7 +217,7 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-                if (determineBMICategory().contains(category))
+             //   if (member.determineBMICategory().contains(category))
                 {
                     membersBMICategory = membersBMICategory + member.toString() + "\n\n";
                 }
@@ -261,11 +261,11 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)' below, thus making code shorter.
             for(Member member : members)
             {
-                listOfMembersImpAndMet = listOfMembersImpAndMet + member.getMemberName() + ":\t"
-                        + member.getStartingWeight() + " kg ("
-                        + member.convertWeightKGtoPounds() + " lbs)\t"
-                        + member.getHeight() + " metres ("
-                        + member.convertHeightMetresToInches() + " inches).\n";
+              //  listOfMembersImpAndMet = listOfMembersImpAndMet + member.getMemberName() + ":\t"
+               //         + member.getStartingWeight() + " kg ("
+               //         + member.convertWeightKGtoPounds() + " lbs)\t"
+               //         + member.getHeight() + " metres ("
+              //          + member.convertHeightMetresToInches() + " inches).\n";
             }
             return listOfMembersImpAndMet;
         }
