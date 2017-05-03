@@ -11,9 +11,9 @@ public class StudentMember extends Member
     private int studentId;
     private String collegeName;
 
-    public StudentMember(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage, HashMap<String, String> assessments, int studentId, String collegeName)
+    public StudentMember(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage, int studentId, String collegeName)
     {
-        super(email, name, address, gender, height, startingWeight, chosenPackage, assessments);
+        super(email, name, address, gender, height, startingWeight, chosenPackage);
 
         //no validation on studentId
         this.studentId = studentId;
@@ -41,6 +41,6 @@ public class StudentMember extends Member
 
     public void chosenPackage(String chosenPackage)
     {
-
+        chosenPackage = "WIT";
     }
 }

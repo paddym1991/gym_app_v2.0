@@ -153,7 +153,7 @@ public class GymApi {
             String membersIdealWeight = "";
             for (int index = 0; index < members.size(); index++)
             {
-               // if(members.get(index).isIdealBodyWeight() == true)
+                if(Analytics.isIdealBodyWeight(members.get(index), members.get(index).latestAssessment()) == true)
                 {
                     membersIdealWeight =  membersIdealWeight + members.get(index).toString() + "\n\n";
                 }
@@ -217,7 +217,7 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-             //   if (member.determineBMICategory().contains(category))
+              //  if (member.determineBMICategory().contains(category))
                 {
                     membersBMICategory = membersBMICategory + member.toString() + "\n\n";
                 }
@@ -236,6 +236,7 @@ public class GymApi {
             return "there are no members in the gym";
         }
     }
+
 
     /**
      * List all the members' weight and height both imperically and metrically.
@@ -261,11 +262,11 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)' below, thus making code shorter.
             for(Member member : members)
             {
-              //  listOfMembersImpAndMet = listOfMembersImpAndMet + member.getMemberName() + ":\t"
-               //         + member.getStartingWeight() + " kg ("
-               //         + member.convertWeightKGtoPounds() + " lbs)\t"
-               //         + member.getHeight() + " metres ("
-              //          + member.convertHeightMetresToInches() + " inches).\n";
+                listOfMembersImpAndMet = listOfMembersImpAndMet + member.getName() + ":\t"
+                        + member.getStartingWeight() + " kg ("
+                        + Analytics.convertWeightKGtoPounds(member.getHeight()) + " lbs)\t" //TODO: assessment.getHeight()???
+                        + member.getHeight() + " metres ("
+                        + Analytics.convertHeightMetresToInches(member.getStartingWeight()) + " inches).\n"; //TODO: assessment.getWeigth()??
             }
             return listOfMembersImpAndMet;
         }

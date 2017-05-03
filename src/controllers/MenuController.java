@@ -1,8 +1,6 @@
 package controllers;
 
-import models.GymApi;
-import models.Member;
-import models.Trainer;
+import models.*;
 import utils.ScannerInput;
 
 /**
@@ -73,6 +71,7 @@ public class MenuController {
                 break;
             }
             System.out.println("\nPress Enter to continue. . .");
+            input.getStringInput();
            // input.nextLine();
             //input.nextLine();
             userOption = gymMenu();
@@ -133,52 +132,65 @@ public class MenuController {
 
     private void addMember()
     {
-        String memberType = "";
-        memberType = memberType.toUpperCase();
+        //String memberType = "";
+        //memberType = memberType.toUpperCase();
+        input.getStringInput();
+
+        //User asked whether the member being added is a student or not
+        System.out.println("Student or Premium ('S' or 'P'): ");
+        String memberType = input.getStringInput().toUpperCase();
         if ((memberType.equals("S")) || (memberType.equals("P")))
         {
-            memberType = memberType;
-        }
-        System.out.print("Student or Premium ('S' or 'P')");
-        input.getStringInput();
+            //following member details are to be given
+            System.out.println("Please enter the following member details...");
 
-        input.getStringInput();
-        System.out.println("Please enter the following member details...");
+            System.out.print("\temail: ");
+            String email = input.getStringInput();
 
+            System.out.print("\tName (max 30 chars): ");
+            String name = input.getStringInput();
 
+            System.out.print("\tAddress: ");
+            String address = input.getStringInput();
 
-            System.out.print("\tstudentId: ");
-            int studentId = input.getIntInput();
-            input.getIntInput();
+            System.out.print("\tHeight (between 1 and 3 metres): ");
+            double height = input.getDoubleInput();
 
-            System.out.print("\tCollege: ");
-            String collegeName = input.getStringInput();
+            System.out.print("\tStarting weight (between 35kg and 250kg): ");
+            double startingWeight = input.getDoubleInput();
             input.getStringInput();
 
+            System.out.print("\tGender (M/F): ");
+            String gender = input.getStringInput();
 
-        System.out.print("\temail: ");
-        String email = input.getStringInput();
+            System.out.print("\tChosen Package: ");
+            String chosenPackage = input.getStringInput();
 
-        System.out.print("\tName (max 30 chars): ");
-        String name = input.getStringInput();
+            //If member type is student then user will give further information.
+            if (memberType.equals("S"))
+            {
+                System.out.print("\tstudentId: ");
+                int studentId = input.getIntInput();
 
-        System.out.print("\tAddress: ");
-        String address = input.getStringInput();
 
-        System.out.print("\tHeight (between 1 and 3 metres): ");
-        double height = input.getDoubleInput();
+                System.out.print("\tCollege: ");
+                String collegeName = input.getStringInput();
 
-        System.out.print("\tStarting weight (between 35kg and 250kg): ");
-        double startingWeight = input.getDoubleInput();
-        input.getStringInput();
+                //All information inserted including student details are added.
+                gym.addMember(new StudentMember(email, name, address, gender, height, startingWeight, chosenPackage, studentId, collegeName));
+            }
+            else
+            {
+                //if P was chosen, all details up to chosen package will be added to gym
+                gym.addMember(new PremiumMember(email, name, address, gender, height, startingWeight, chosenPackage));
+            }
+        }
+        else
+        {
+            //if neither 'S' nor 'P' wer chosen this message will follow. User will then exit back to menu
+            System.out.println("Invalid Option");
+        }
 
-        System.out.print("\tGender (M/F): ");
-        String gender = input.getStringInput();
-
-        System.out.print("\tChosen Package: ");
-        String chosenPackage = input.getStringInput();
-
-       // gym.addMember(new Member(studentId, collegeName, email, name, address, height, startingWeight, gender, chosenPackage));
 
     }
 

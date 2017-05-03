@@ -59,7 +59,7 @@ public class Analytics
      *      "NORMAL".</pre>
      */
     //TODO: should this be static?
-    public String determineBMICategory(double bmiValue)
+    public static String determineBMICategory(double bmiValue)
     {
         if (bmiValue < 15)
         {
@@ -106,9 +106,9 @@ public class Analytics
      *  @return Returns true if the result of the devine formula is within 2 kgs (inclusive) of the starting weight; false if it is outside this range.
      */
     //TODO: should this be static?
-    public boolean isIdealBodyWeight(Member member, Assessment assessment)
+    public static boolean isIdealBodyWeight(Member member, Assessment assessment)
     {
-        double heightToInches = convertHeightMetresToInches();
+        double heightToInches = convertHeightMetresToInches(member.getHeight()); //TODO: may change this to assessment.getHeight()
         int fiveFeet = 60;
         double idealBodyWeight = 0.0;
 
@@ -141,12 +141,12 @@ public class Analytics
      *
      * @return member height converted from metres to inches using the formula: meters multiplied by 39.37. The number returned is truncated to two decimal places.
      */
-    public double convertHeightMetresToInches()
+    public static double convertHeightMetresToInches(double height)
     {
         //double heightToInches = height * 39.37;
         //return toTwoDecimalPlaces(heightToInches);
         //TODO: created a member field at the top. is that ok?
-        return toTwoDecimalPlaces(member.getHeight() * 39.37);
+        return toTwoDecimalPlaces(height * 39.37);
         //truncate this to 2 decimal places;
     }
 
@@ -155,12 +155,12 @@ public class Analytics
      *
      * @return member weight converted from KGs to pounds. The number returned is truncated to two decimal places.
      */
-    public double convertWeightKGtoPounds()
+    public static double convertWeightKGtoPounds(double weight)
     {
         //double weightToPounds = startingWeight * 2.2;
         //return toTwoDecimalPlaces(weightToPounds);
         //TODO: created a member field at the top. is that ok?
-        return toTwoDecimalPlaces(member.getStartingWeight() * 2.2);
+        return toTwoDecimalPlaces(weight * 2.2);
     }
 
 

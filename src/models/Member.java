@@ -15,7 +15,7 @@ public abstract class Member extends Person
     private HashMap<String, String> assessment = new HashMap<String, String>(); //TODO: sort this out
 
 
-    public Member(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage, HashMap<String, String> assessment)
+    public Member(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage)
     {
         super(email, name, address, gender);
 

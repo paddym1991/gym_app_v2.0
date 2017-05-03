@@ -91,4 +91,6 @@ public class Assessment {
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
+
+    //TODO: Add toString method
 }
