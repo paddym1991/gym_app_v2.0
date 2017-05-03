@@ -26,7 +26,7 @@ public abstract class Member extends Person
 
         else
         {
-            this.height = 0.0;
+            this.height = 1;
         }
 
         if ((startingWeight >= 35) && (startingWeight <= 250))

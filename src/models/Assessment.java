@@ -93,4 +93,16 @@ public class Assessment {
     }
 
     //TODO: Add toString method
+    public String toString()
+    {
+        return "Weight: " + getWeight() + " Kgs"
+                + "\nChest: " + getChest() + " Cms"
+                + "\nThigh: " + getThigh() + " Cms"
+                + "\nupperArm " + getUpperArm() + " Cms"
+                + "\nWaist " + getWaist() + " Cms"
+                + "\nHips " + getHips() + " Cms"
+                + "\nComment: " + getComment() + " ."
+                + "\nTrainer: " + getTrainer() + " .";
+    }
+
 }

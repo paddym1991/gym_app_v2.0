@@ -146,6 +146,7 @@ public class MenuController {
 
             System.out.print("\temail: ");
             String email = input.getStringInput();
+            //TODO: if email already exists, tell user and prompt to enter again
 
             System.out.print("\tName (max 30 chars): ");
             String name = input.getStringInput();
@@ -161,6 +162,7 @@ public class MenuController {
             input.getStringInput();
 
             System.out.print("\tGender (M/F): ");
+
             String gender = input.getStringInput();
 
             System.out.print("\tChosen Package: ");
@@ -190,8 +192,6 @@ public class MenuController {
             //if neither 'S' nor 'P' wer chosen this message will follow. User will then exit back to menu
             System.out.println("Invalid Option");
         }
-
-
     }
 
     private void addTrainer()

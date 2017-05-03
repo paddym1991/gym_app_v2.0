@@ -217,7 +217,7 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-              //  if (member.determineBMICategory().contains(category))
+               // if (member.determineBMICategory().contains(category))
                 {
                     membersBMICategory = membersBMICategory + member.toString() + "\n\n";
                 }
