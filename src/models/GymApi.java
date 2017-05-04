@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import utils.Analytics;
 
+import static utils.Analytics.calculateBMI;
+
 /**
  * Created by Paddym1991 on 02/05/2017.
  */
@@ -217,7 +219,7 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-          //      if (member.determineBMICategory().contains(category))
+                if (Analytics.determineBMICategory(calculateBMI(member, member.latestAssessment())).contains(category))
                 {
                     membersBMICategory = membersBMICategory + member.toString() + "\n\n";
                 }
@@ -263,10 +265,12 @@ public class GymApi {
             for(Member member : members)
             {
                 listOfMembersImpAndMet = listOfMembersImpAndMet + member.getName() + ":\t"
-                        + member.getStartingWeight() + " kg ("
+                       // + member.getStartingWeight() + " kg (" //TODO: assessment.getWeigth()??
+                        + member.latestAssessment().getWeight() + " kg ("
                         + Analytics.convertWeightKGtoPounds(member.getHeight()) + " lbs)\t" //TODO: assessment.getHeight()???
                         + member.getHeight() + " metres ("
-                        + Analytics.convertHeightMetresToInches(member.getStartingWeight()) + " inches).\n"; //TODO: assessment.getWeigth()??
+                        //+ Analytics.convertHeightMetresToInches(member.getStartingWeight()) + " inches).\n"; //TODO: assessment.getWeigth()??
+                        + Analytics.convertHeightMetresToInches(member.latestAssessment().getWeight()) + " inches).\n";
             }
             return listOfMembersImpAndMet;
         }
@@ -274,6 +278,18 @@ public class GymApi {
         {
             return "There are no members in the gym";
         }
+    }
+
+    //TODO:????????????????????????????????
+    //check to see if email entered at registration already exists.
+    public boolean isActiveEmail(String email)
+    {
+        for (Member member : members)
+        {
+            if (member.getEmail().equals(email))
+                return true;
+        }
+        return false;
     }
 
     public void load() throws Exception

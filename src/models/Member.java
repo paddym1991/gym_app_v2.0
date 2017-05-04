@@ -12,7 +12,7 @@ public abstract class Member extends Person
     private double height;
     private double startingWeight;
     private String chosenPackage;
-    private HashMap<String, String> assessment = new HashMap<String, String>(); //TODO: sort this out
+    private HashMap<Date, Assessment> assessment = new HashMap<Date, Assessment>(); //TODO: sort this out
 
 
     public Member(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage)
@@ -43,12 +43,17 @@ public abstract class Member extends Person
         //this.assessment = new HashMap<>();
     }
 
-    public double getHeight() {
+    public double getHeight()
+    {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    public void setHeight(double height)
+    {
+        if ((height >= 1) && (height <= 3))
+        {
+            this.height = height;
+        }
     }
 
 
@@ -58,20 +63,14 @@ public abstract class Member extends Person
         return startingWeight;
     }
 
-    public void setStartingWeight(double startingWeight) {
-        this.startingWeight = startingWeight;
-    }
-
-
-
-    /**
-     * The method truncates a double to 2 decimal places.
-     */
-    //TODO: have another copy of this in Analytics
-    public double toTwoDecimalPlaces(double num)
+    public void setStartingWeight(double startingWeight)
     {
-        return (int)(num * 100) / 100.0;
+        if ((startingWeight >= 35) && (startingWeight <= 250))
+        {
+            this.startingWeight = startingWeight;
+        }
     }
+
 
     public String getChosenPackage() {
         return chosenPackage;
@@ -81,23 +80,26 @@ public abstract class Member extends Person
         this.chosenPackage = chosenPackage;
     }
 
-    public HashMap<String, String> getAssessments() {
+    public HashMap<Date, Assessment> getAssessment() {
         return assessment;
     }
 
-    public void setAssessments(HashMap<String, String> assessments) {
-        this.assessment = assessments;
+    public void setAssessment(HashMap<Date, Assessment> assessment) {
+        this.assessment = assessment;
     }
 
     public Assessment latestAssessment()
     {
-        return latestAssessment();
+        return assessment.get(sortedAssessmentDates().last());
     }
 
     //TODO
     public SortedSet<Date> sortedAssessmentDates()
     {
         //return sortedAssessmentDates;
+        //SortedSet<Date>
+        //return;
+        ;
         return null;
     }
 
@@ -116,9 +118,9 @@ public abstract class Member extends Person
     //@Override Person
     public String toString()
     {
-         super.toString();
-         return ".\n\tHeight: " + height
-                + " metres, Starting Weight: " + startingWeight;
+        return super.toString() +
+          ".\n\tHeight: " + height
+                + " metres, Starting Weight: " + startingWeight + " Kgs";
     }
 
 }

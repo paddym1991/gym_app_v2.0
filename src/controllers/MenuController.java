@@ -34,6 +34,7 @@ public class MenuController {
 
     private int gymMenu()
     {
+        //TODO: on app start automatically load gym data from xml file
         System.out.println("=========================================");
         System.out.println("Welcome to 'Skinny Pete's' Fitness Centre");
         System.out.println("=========================================");
@@ -44,7 +45,8 @@ public class MenuController {
         System.out.println(" 3) Member Register");
         System.out.println(" 4) Trainer Register");
         System.out.println(" 0) Exit Application");
-        return input.getIntInput();
+        //TODO: on app exit automatically save gym data to xml file
+        return input.validNextInt("> ");
     }
 
 
@@ -55,13 +57,29 @@ public class MenuController {
         {
             switch (userOption)
             {
-                case 1: System.out.println("Please enter your email address: ");
-                        input.getStringInput();
-                        //TODO: verify email
+                case 1: input.getStringInput();
+                        System.out.println("Please enter your email address: ");
+                        String memberEmail = input.getStringInput();
+                    //TODO: verify email
+                        while (!gym.isActiveEmail(memberEmail))
+                        {
+                            System.out.println("Access Denied!\n");
+                            input.getStringInput();
+                            runGymMenu();
+                        }
+                        runMemberMenu();
                 break;
-                case 2: System.out.println("Please enter your email address: ");
-                        input.getStringInput();
-                        //TODO: verify email
+                case 2: input.getStringInput();
+                        System.out.println("Please enter your email address: ");
+                        String trainerEmail = input.getStringInput();
+                    //TODO: verify email
+                        while (!gym.isActiveEmail(trainerEmail))
+                        {
+                            System.out.println("Access Denied!\n");
+                            input.getStringInput();
+                            runGymMenu();
+                        }
+                        runTrainerMenu();
                 break;
                 case 3: addMember();
                 break;
@@ -71,6 +89,7 @@ public class MenuController {
                 break;
             }
             System.out.println("\nPress Enter to continue. . .");
+            input.getStringInput();
             input.getStringInput();
            // input.nextLine();
             //input.nextLine();
@@ -97,11 +116,11 @@ public class MenuController {
         System.out.println("  1) View profile");
         System.out.println("  2) Update profile");
         System.out.println("  3) Progress");
-        System.out.println("  0) Exit");
-        return input.getIntInput();
+        System.out.println("  0) Exit to Main Menu");
+        return input.validNextInt("> ");
     }
 
-    public void runMemberMenu()
+    private void runMemberMenu()
     {
         int userOption = memberMenu();
         while (userOption != 0)
@@ -125,8 +144,7 @@ public class MenuController {
             //input.nextLine();
             userOption = memberMenu();
         }
-        System.out.println("Exiting...bye");
-        System.exit(0);
+        runGymMenu();
     }
 
     /*
@@ -148,14 +166,14 @@ public class MenuController {
         System.out.println("---------");
         System.out.println("  5) List members with ideal starting weight");
         System.out.println("  6) List members with a specific BMI category");
-        System.out.println("  7) Assessments");
-        System.out.println("  8) Reports");
-        System.out.println("  0) Exit");
+        System.out.println("  7) Assessment sub-menu");
+        System.out.println("  8) Reports sub-menu");
+        System.out.println("  0) Exit to Main Menu");
 
-        return input.getIntInput();
+        return input.validNextInt("> ");
     }
 
-    public void runTrainerMenu()
+    private void runTrainerMenu()
     {
         int userOption = trainerMenu();
         while (userOption != 0)
@@ -164,19 +182,47 @@ public class MenuController {
             {
                 case 1: addMember();
                     break;
-                case 2: gym.listMembers();
+                case 2: System.out.println(gym.listMembers());
                     break;
-                case 3:
+                case 3: //TODO: Search for a member by email
+                        System.out.println("Enter Member's Email:\n");
+                        String emailSearch = input.getStringInput().toUpperCase();
+                        if (gym.isActiveEmail(emailSearch))
+                        {
+                            return ; //TODO finish this off
+                        }
                     break;
-                case 4:
+                case 4: //TODO: Search for a member by name
                     break;
-                case 5: gym.listMembersWithIdealWeight();
+                case 5: System.out.println(gym.listMembersWithIdealWeight());
                     break;
-           //     case 6: gym.listBySpecificBMICategory(category);
-           //         break;
-                case 7:
+                case 6: //System.out.println("");gym.listBySpecificBMICategory(members);
+                        System.out.print("Please enter a specific BMI category: ");
+                        input.getStringInput();
+                        String category = input.getStringInput();
+                    //input.nextLine();
+                        System.out.println(gym.listBySpecificBMICategory(category));
                     break;
-                case 8:
+                case 7: System.out.println(" 1) Add Assessment for a member.");
+                        System.out.println(" 2) Update comment on an assessment for a member.");
+                        int assessmentChoice = input.validNextInt("> ");
+                        if (assessmentChoice == 1)
+                        {
+                           // Member.setAssessment(assessment);
+                            System.out.println("Add assessment for a member");
+                        }
+                        else if (assessmentChoice == 2)
+                        {
+                            System.out.println("update comment for a member");
+                            //TODO: update comment
+                        }
+                        else
+                        {
+                            System.out.println("Invalid option");
+                            input.getStringInput();
+                        }
+                    break;
+                case 8: //TODO: reports sub-menu
                     break;
                 default: System.out.println("\nInvalid option entered: " + userOption);
                     break;
@@ -187,8 +233,7 @@ public class MenuController {
             //input.nextLine();
             userOption = trainerMenu();
         }
-        System.out.println("Exiting...bye");
-        System.exit(0);
+        runGymMenu();
     }
 
     private void addMember()
@@ -207,7 +252,12 @@ public class MenuController {
 
             System.out.print("\temail: ");
             String email = input.getStringInput();
-            //TODO: if email already exists, tell user and prompt to enter again
+            while (gym.isActiveEmail(email))
+            {
+                System.out.println("Email already exists\n");
+                System.out.println("Please enter another Email address:");
+                email = input.getStringInput();
+            }
 
             System.out.print("\tName (max 30 chars): ");
             String name = input.getStringInput();
@@ -216,10 +266,10 @@ public class MenuController {
             String address = input.getStringInput();
 
             System.out.print("\tHeight (between 1 and 3 metres): ");
-            double height = input.getDoubleInput();
+            double height = input.validNextDouble("> ");
 
             System.out.print("\tStarting weight (between 35kg and 250kg): ");
-            double startingWeight = input.getDoubleInput();
+            double startingWeight = input.validNextDouble("> ");
             input.getStringInput();
 
             System.out.print("\tGender (M/F): ");
@@ -233,11 +283,12 @@ public class MenuController {
             if (memberType.equals("S"))
             {
                 System.out.print("\tstudentId: ");
-                int studentId = input.getIntInput();
+                int studentId = input.validNextInt("> ");
 
 
                 System.out.print("\tCollege: ");
                 String collegeName = input.getStringInput();
+                input.getStringInput();
 
                 //All information inserted including student details are added.
                 gym.addMember(new StudentMember(email, name, address, gender, height, startingWeight, chosenPackage, studentId, collegeName));
@@ -253,6 +304,8 @@ public class MenuController {
             //if neither 'S' nor 'P' wer chosen this message will follow. User will then exit back to menu
             System.out.println("Invalid Option");
         }
+        input.getStringInput();
+        System.out.println("Member successfully added!");
     }
 
     private void addTrainer()
@@ -277,6 +330,19 @@ public class MenuController {
         String speciality = input.getStringInput();
 
         gym.addTrainer(new Trainer(email, name, address, gender, speciality));
+    }
+
+    //TODO: not sure whether to use this above or not
+    public String enterEmail()
+    {
+        String email = input.getStringInput();
+        while (gym.isActiveEmail(email))
+        {
+            System.out.println("Email already exists\n");
+            System.out.println("Please enter another Email address:");
+            email = input.getStringInput();
+        }
+        return email;
     }
 
 }

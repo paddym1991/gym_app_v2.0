@@ -26,7 +26,7 @@ public class Trainer extends Person
 
     public String toString()
     {
-        super.toString();
-        return ".\n\tspeciality: " + speciality;
+        return super.toString() +
+         ".\n\tspeciality: " + speciality;
     }
 }

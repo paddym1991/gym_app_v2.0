@@ -15,6 +15,11 @@ public class PremiumMember extends Member
 
     public void chosenPackage(String packageChoice)
     {
-     //   super.chosenPackage = chosenPackage(packageChoice);
+      //  super.chosenPackage = chosenPackage(packageChoice);
+    }
+
+    public String toString()
+    {
+        return super.toString();
     }
 }

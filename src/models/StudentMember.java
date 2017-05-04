@@ -44,4 +44,9 @@ public class StudentMember extends Member
         //TODO: Provides the concrete implementation for this method.  The chosenPackage is set to the package associated with their collegeName.  If there is no package associated with their college, default to “Package 3”.
         chosenPackage = "WIT";
     }
+
+    public String toString()
+    {
+        return super.toString() + "Student ID: " + studentId + ", College: " + collegeName;
+    }
 }

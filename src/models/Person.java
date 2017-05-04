@@ -16,7 +16,8 @@ public abstract class Person
      *
      *
      *
-     * @param <pre>email - TODO: javadoc for email
+     * @param
+     * <pre>email - There is no validation on the person's email.
      *name - The persons's name should be no more than 30 characters. If the entered name exceeds 30 characters,
      *the extra characters will be truncated and only the first 30 characters will be retained.
      *address - There is no validation on the person's address.
@@ -65,8 +66,13 @@ public abstract class Person
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
+        if (name.length() > 30)
+        {
+            this.name = name.substring(0, 30);
+        }
     }
 
     public String getAddress() {
@@ -81,8 +87,13 @@ public abstract class Person
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String gender)
+    {
+        gender = gender.toUpperCase();
+        if ((gender.equals("F")) || (gender.equals("M")))
+        {
+            this.gender = gender;
+        }
     }
 
 
