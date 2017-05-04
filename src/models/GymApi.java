@@ -281,12 +281,23 @@ public class GymApi {
     }
 
     //TODO:????????????????????????????????
-    //check to see if email entered at registration already exists.
-    public boolean isActiveEmail(String email)
+    //check to see if email entered already exists.
+    public boolean isActiveMemberEmail(String email)
     {
         for (Member member : members)
         {
             if (member.getEmail().equals(email))
+                return true;
+        }
+        return false;
+    }
+
+    //check to see if trainer email already exists
+    public boolean isActiveTrainerEmail(String email)
+    {
+        for (Trainer trainer : trainers)
+        {
+            if (trainer.getEmail().equals(email))
                 return true;
         }
         return false;

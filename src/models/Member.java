@@ -88,6 +88,13 @@ public abstract class Member extends Person
         this.assessment = assessment;
     }
 
+    /*
+    public void addAssessment()
+    {
+        assessment.put("01.05.2017", new Assessment());
+    }
+    */
+
     public Assessment latestAssessment()
     {
         return assessment.get(sortedAssessmentDates().last());

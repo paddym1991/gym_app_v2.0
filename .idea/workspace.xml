@@ -6,11 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/controllers/MenuController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/GymApi.java" afterPath="$PROJECT_DIR$/src/models/GymApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Member.java" afterPath="$PROJECT_DIR$/src/models/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Person.java" afterPath="$PROJECT_DIR$/src/models/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/PremiumMember.java" afterPath="$PROJECT_DIR$/src/models/PremiumMember.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/StudentMember.java" afterPath="$PROJECT_DIR$/src/models/StudentMember.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Trainer.java" afterPath="$PROJECT_DIR$/src/models/Trainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ScannerInput.java" afterPath="$PROJECT_DIR$/src/utils/ScannerInput.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +31,7 @@
       <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-61">
+            <state relative-caret-position="143">
               <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
@@ -46,7 +41,7 @@
       <file leaf-file-name="Assessment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
+            <state relative-caret-position="204">
               <caret line="18" column="120" lean-forward="true" selection-start-line="18" selection-start-column="120" selection-end-line="18" selection-end-column="120" />
               <folding />
             </state>
@@ -56,8 +51,8 @@
       <file leaf-file-name="GymApi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/GymApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="173" column="53" lean-forward="true" selection-start-line="173" selection-start-column="53" selection-end-line="173" selection-end-column="53" />
+            <state relative-caret-position="654">
+              <caret line="293" column="0" lean-forward="true" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1750#1751#0" expanded="true" />
@@ -69,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+            <state relative-caret-position="353">
+              <caret line="217" column="26" lean-forward="false" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Member.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Member.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Member.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+            <state relative-caret-position="391">
+              <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#347#365#0" expanded="true" />
@@ -146,8 +141,8 @@
                 <element signature="e#1858#1859#0" expanded="true" />
                 <element signature="e#1929#1930#0" expanded="true" />
                 <element signature="e#1973#1974#0" expanded="true" />
-                <element signature="e#2021#2022#0" expanded="true" />
-                <element signature="e#2090#2091#0" expanded="true" />
+                <element signature="e#2136#2137#0" expanded="true" />
+                <element signature="e#2205#2206#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -188,8 +183,8 @@
         <option value="$PROJECT_DIR$/src/models/PremiumMember.java" />
         <option value="$PROJECT_DIR$/src/utils/ScannerInput.java" />
         <option value="$PROJECT_DIR$/src/models/GymApi.java" />
-        <option value="$PROJECT_DIR$/src/controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/models/Member.java" />
+        <option value="$PROJECT_DIR$/src/controllers/MenuController.java" />
       </list>
     </option>
   </component>
@@ -832,7 +827,7 @@
       <workItem from="1493717525780" duration="2265000" />
       <workItem from="1493720467365" duration="22810000" />
       <workItem from="1493800596432" duration="28798000" />
-      <workItem from="1493832414019" duration="29155000" />
+      <workItem from="1493832414019" duration="37680000" />
     </task>
     <task id="LOCAL-00001" summary="Most classes created and setters and getters">
       <created>1493738322332</created>
@@ -876,11 +871,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493847297516</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes made to: &#10;MenuController (changes to each menu)&#10;GymApi (added latestAssessment checks searches + check for active email)&#10;Member (set verification on valid entries)&#10;Person (set verification on valid entries)&#10;PremiumMember (toString)&#10;StudentMember (toString)&#10;Trainer (toString)&#10;ScannerInput (created validNext Int/Double methods)">
+      <created>1493911675100</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1493911675100</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86045000" />
+    <option name="totallyTimeSpent" value="94570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -930,7 +932,8 @@
     <MESSAGE value="Changes made to MenuController, Analytics and GymAPI" />
     <MESSAGE value="Changes made to Assessment" />
     <MESSAGE value="Changes made to MenuControllers and GymApi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes made to MenuControllers and GymApi" />
+    <MESSAGE value="Changes made to: &#10;MenuController (changes to each menu)&#10;GymApi (added latestAssessment checks searches + check for active email)&#10;Member (set verification on valid entries)&#10;Person (set verification on valid entries)&#10;PremiumMember (toString)&#10;StudentMember (toString)&#10;Trainer (toString)&#10;ScannerInput (created validNext Int/Double methods)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes made to: &#10;MenuController (changes to each menu)&#10;GymApi (added latestAssessment checks searches + check for active email)&#10;Member (set verification on valid entries)&#10;Person (set verification on valid entries)&#10;PremiumMember (toString)&#10;StudentMember (toString)&#10;Trainer (toString)&#10;ScannerInput (created validNext Int/Double methods)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1039,8 +1042,8 @@
             <element signature="e#1858#1859#0" expanded="true" />
             <element signature="e#1929#1930#0" expanded="true" />
             <element signature="e#1973#1974#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1152,8 +1155,8 @@
             <element signature="e#1858#1859#0" expanded="true" />
             <element signature="e#1929#1930#0" expanded="true" />
             <element signature="e#1973#1974#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1276,22 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Trainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Assessment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="18" column="120" lean-forward="true" selection-start-line="18" selection-start-column="120" selection-end-line="18" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Analytics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-391">
@@ -1324,8 +1311,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
+        <state relative-caret-position="143">
           <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Trainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1345,8 +1340,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/GymApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="173" column="53" lean-forward="true" selection-start-line="173" selection-start-column="53" selection-end-line="173" selection-end-column="53" />
+        <state relative-caret-position="654">
+          <caret line="293" column="0" lean-forward="true" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1750#1751#0" expanded="true" />
@@ -1357,20 +1352,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/models/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="18" column="120" lean-forward="true" selection-start-line="18" selection-start-column="120" selection-end-line="18" selection-end-column="120" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Member.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+        <state relative-caret-position="391">
+          <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#347#365#0" expanded="true" />
@@ -1380,8 +1373,18 @@
             <element signature="e#1858#1859#0" expanded="true" />
             <element signature="e#1929#1930#0" expanded="true" />
             <element signature="e#1973#1974#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="217" column="26" lean-forward="false" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

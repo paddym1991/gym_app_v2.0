@@ -61,30 +61,35 @@ public class MenuController {
                         System.out.println("Please enter your email address: ");
                         String memberEmail = input.getStringInput();
                     //TODO: verify email
-                        while (!gym.isActiveEmail(memberEmail))
+                        if (!gym.isActiveMemberEmail(memberEmail))
                         {
                             System.out.println("Access Denied!\n");
                             input.getStringInput();
                             runGymMenu();
                         }
-                        runMemberMenu();
+                        else {
+                            runMemberMenu();
+                        }
                 break;
                 case 2: input.getStringInput();
                         System.out.println("Please enter your email address: ");
-                        String trainerEmail = input.getStringInput();
+                        String TrainerEmail = input.getStringInput();
                     //TODO: verify email
-                        while (!gym.isActiveEmail(trainerEmail))
+                        if (!gym.isActiveTrainerEmail(TrainerEmail))
                         {
                             System.out.println("Access Denied!\n");
                             input.getStringInput();
                             runGymMenu();
                         }
-                        runTrainerMenu();
+                        else {
+                            runTrainerMenu();
+                        }
                 break;
                 case 3: addMember();
                 break;
                 case 4: addTrainer();
                 break;
+                //TODO: should I add a remove option
                 default: System.out.println("\nInvalid option entered: " + userOption);
                 break;
             }
@@ -187,7 +192,7 @@ public class MenuController {
                 case 3: //TODO: Search for a member by email
                         System.out.println("Enter Member's Email:\n");
                         String emailSearch = input.getStringInput().toUpperCase();
-                        if (gym.isActiveEmail(emailSearch))
+                        if (gym.isActiveMemberEmail(emailSearch))
                         {
                             return ; //TODO finish this off
                         }
@@ -210,6 +215,7 @@ public class MenuController {
                         {
                            // Member.setAssessment(assessment);
                             System.out.println("Add assessment for a member");
+                        //    Member.assessment.put("")
                         }
                         else if (assessmentChoice == 2)
                         {
@@ -252,7 +258,7 @@ public class MenuController {
 
             System.out.print("\temail: ");
             String email = input.getStringInput();
-            while (gym.isActiveEmail(email))
+            while ((gym.isActiveMemberEmail(email)) || (gym.isActiveTrainerEmail(email)))
             {
                 System.out.println("Email already exists\n");
                 System.out.println("Please enter another Email address:");
@@ -313,9 +319,15 @@ public class MenuController {
         input.getStringInput();
         System.out.println("Please enter the following member details...");
 
+        //TODO: if email is already in use, tell them invalid, ask to submit again.
         System.out.print("\temail: ");
         String email = input.getStringInput();
-        //TODO: if email is already in use, tell them invalid, ask to submit again.
+        while ((gym.isActiveMemberEmail(email)) || (gym.isActiveTrainerEmail(email)))
+        {
+            System.out.println("Email already exists\n");
+            System.out.println("Please enter another Email address:");
+            email = input.getStringInput();
+        }
 
         System.out.print("\tName (max 30 chars): ");
         String name = input.getStringInput();
@@ -336,7 +348,7 @@ public class MenuController {
     public String enterEmail()
     {
         String email = input.getStringInput();
-        while (gym.isActiveEmail(email))
+        while (gym.isActiveMemberEmail(email))
         {
             System.out.println("Email already exists\n");
             System.out.println("Please enter another Email address:");
