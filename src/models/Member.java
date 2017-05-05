@@ -2,6 +2,7 @@ package models;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Created by Paddym1991 on 02/05/2017.
@@ -12,7 +13,8 @@ public abstract class Member extends Person
     private double height;
     private double startingWeight;
     private String chosenPackage;
-    private HashMap<Date, Assessment> assessment = new HashMap<Date, Assessment>(); //TODO: sort this out
+    private HashMap<Date, Assessment> assessment = new HashMap<>(); //TODO: sort this out
+
 
 
     public Member(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage)
@@ -88,12 +90,12 @@ public abstract class Member extends Person
         this.assessment = assessment;
     }
 
-    /*
+
     public void addAssessment()
     {
-        assessment.put("01.05.2017", new Assessment());
+   //     assessment.put("01.05.2017", new Assessment());
     }
-    */
+
 
     public Assessment latestAssessment()
     {
@@ -104,10 +106,9 @@ public abstract class Member extends Person
     public SortedSet<Date> sortedAssessmentDates()
     {
         //return sortedAssessmentDates;
-        //SortedSet<Date>
-        //return;
-        ;
-        return null;
+
+        SortedSet<Date> keys = new TreeSet<Date>(assessment.keySet());
+        return keys;
     }
 
     public abstract void chosenPackage(String chosenPackage);

@@ -190,14 +190,14 @@ public class MenuController {
                 case 2: System.out.println(gym.listMembers());
                     break;
                 case 3: //TODO: Search for a member by email
-                        System.out.println("Enter Member's Email:\n");
-                        String emailSearch = input.getStringInput().toUpperCase();
-                        if (gym.isActiveMemberEmail(emailSearch))
-                        {
-                            return ; //TODO finish this off
-                        }
+                        System.out.print("\tPlease enter email to search: ");
+                        String emailSearch = input.getStringInput();
+                        System.out.println(gym.searchMemberEmail(emailSearch));
                     break;
                 case 4: //TODO: Search for a member by name
+                        System.out.print("\tPlease enter name to search: ");
+                        String nameSearch = input.getStringInput();
+                        System.out.println(gym.searchMemberName(nameSearch));
                     break;
                 case 5: System.out.println(gym.listMembersWithIdealWeight());
                     break;
@@ -213,7 +213,7 @@ public class MenuController {
                         int assessmentChoice = input.validNextInt("> ");
                         if (assessmentChoice == 1)
                         {
-                           // Member.setAssessment(assessment);
+                     //       Member.setAssessment(assessment);
                             System.out.println("Add assessment for a member");
                         //    Member.assessment.put("")
                         }

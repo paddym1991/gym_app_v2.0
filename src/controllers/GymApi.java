@@ -1,6 +1,11 @@
-package models;
+package controllers;
 
 import java.util.ArrayList;
+
+import models.Assessment;
+import models.Member;
+import models.Person;
+import models.Trainer;
 import utils.Analytics;
 
 import static utils.Analytics.calculateBMI;
@@ -280,14 +285,18 @@ public class GymApi {
         }
     }
 
+    public void addAssessment()
+    {
+     //   Member.assessment.put("01.05.2017", new Assessment());
+    }
+
     //TODO:????????????????????????????????
     //check to see if email entered already exists.
     public boolean isActiveMemberEmail(String email)
     {
         for (Member member : members)
         {
-            if (member.getEmail().equals(email))
-                return true;
+            if (member.getEmail().equals(email)) return true;
         }
         return false;
     }
@@ -297,11 +306,29 @@ public class GymApi {
     {
         for (Trainer trainer : trainers)
         {
-            if (trainer.getEmail().equals(email))
-                return true;
+            if (trainer.getEmail().equals(email)) return true;
         }
         return false;
     }
+
+    public String searchMemberEmail(String emailSearch)
+    {
+        for (Member member : members)
+        {
+            if (member.getEmail().equals(emailSearch)) return member.toString();
+        }
+        return "\nThere are no members matching this email";
+    }
+
+    public String searchMemberName(String nameSearch)
+    {
+        for (Member member : members)
+        {
+            if (member.getName().equals(nameSearch)) return member.toString();
+        }
+        return "\nThere are no members matching this name";
+    }
+
 
     public void load() throws Exception
     {
