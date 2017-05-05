@@ -39,6 +39,8 @@ public class StudentMember extends Member
         this.collegeName = collegeName;
     }
 
+    //Provides the concrete implementation for this method.  The chosenPackage is set to the package associated with their collegeName.
+    // If there is no package associated with their college, default to “Package 3.
     public void chosenPackage(String chosenPackage)
     {
         //TODO: Provides the concrete implementation for this method.  The chosenPackage is set to the package associated with their collegeName.  If there is no package associated with their college, default to “Package 3”.

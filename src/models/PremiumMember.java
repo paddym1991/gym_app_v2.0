@@ -13,6 +13,8 @@ public class PremiumMember extends Member
         super(email, name, address, gender, height, startingWeight, chosenPackage);
     }
 
+    //Provides the concrete implementation for this method.  The chosenPackage is set to the value passed as a parameter.
+    // There is no validation on the entered data.
     public void chosenPackage(String packageChoice)
     {
       //  super.chosenPackage = chosenPackage(packageChoice);

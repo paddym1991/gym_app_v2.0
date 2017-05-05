@@ -73,9 +73,9 @@ public class MenuController {
                 break;
                 case 2: input.getStringInput();
                         System.out.println("Please enter your email address: ");
-                        String TrainerEmail = input.getStringInput();
+                        String trainerEmail = input.getStringInput();
                     //TODO: verify email
-                        if (!gym.isActiveTrainerEmail(TrainerEmail))
+                        if (!gym.isActiveTrainerEmail(trainerEmail))
                         {
                             System.out.println("Access Denied!\n");
                             input.getStringInput();
@@ -215,6 +215,7 @@ public class MenuController {
                         {
                      //       Member.setAssessment(assessment);
                             System.out.println("Add assessment for a member");
+                            addAssessment();
                         //    Member.assessment.put("")
                         }
                         else if (assessmentChoice == 2)
@@ -342,6 +343,47 @@ public class MenuController {
         String speciality = input.getStringInput();
 
         gym.addTrainer(new Trainer(email, name, address, gender, speciality));
+    }
+
+    private void addAssessment()
+    {
+        System.out.print("\tPlease enter email of the member you want to add assessment to: ");
+        String emailSearch = input.getStringInput();
+        if (!gym.isActiveMemberEmail(emailSearch)) {
+            System.out.println("There are no members matching this email!");
+            input.getStringInput();
+        }
+        else {
+            System.out.println("Current Weight: ");
+            double weight = input.validNextDouble("> ");
+
+            System.out.println("Current Chest Measurement: ");
+            double chest = input.validNextDouble("> ");
+
+            System.out.println("Current Thigh Measurement: ");
+            double thigh = input.validNextDouble("> ");
+
+            System.out.println("Current Upper Arm Measurement: .");
+            double upperArm = input.validNextDouble("> ");
+
+            System.out.println("Current Waist Measurement: ");
+            double waist = input.validNextDouble("> ");
+
+            System.out.println("Current Hip Measurement: ");
+            double hips = input.validNextDouble("> ");
+
+            System.out.println("Trainer Comment on Assessment: ");
+            String comment = input.getStringInput();
+/*
+        System.out.println("Trainer Name: ");
+        Trainer trainer = gym.searchTrainerEmail(trainerEmail).toString();
+
+        Assessment newAssessment = new Assessment(weight, chest, thigh,
+                upperArm, waist, hips, comment, gym.searchTrainerEmail(trainerEmail));
+        Date date = new Date();
+        gym.searchMembersByEmail(emailSearch).addAssessment(date, newAssessment);
+*/
+        }
     }
 
     //TODO: not sure whether to use this above or not

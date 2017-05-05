@@ -91,9 +91,9 @@ public abstract class Member extends Person
     }
 
 
-    public void addAssessment()
+    public void addAssessment(Assessment newAssessment)
     {
-   //     assessment.put("01.05.2017", new Assessment());
+        assessment.put(new Date(), newAssessment);
     }
 
 
@@ -111,6 +111,7 @@ public abstract class Member extends Person
         return keys;
     }
 
+    //The concrete implementation of this method will be completed in Member subclasses.
     public abstract void chosenPackage(String chosenPackage);
 
     /**

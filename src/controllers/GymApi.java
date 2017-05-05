@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import models.Assessment;
 import models.Member;
@@ -285,9 +286,9 @@ public class GymApi {
         }
     }
 
-    public void addAssessment()
+    public void addAssessment(Assessment newAssessment)
     {
-     //   Member.assessment.put("01.05.2017", new Assessment());
+    //    searchMembersByEmail().addAssessment();
     }
 
     //TODO:????????????????????????????????
@@ -327,6 +328,15 @@ public class GymApi {
             if (member.getName().equals(nameSearch)) return member.toString();
         }
         return "\nThere are no members matching this name";
+    }
+
+    public String searchTrainerEmail(String emailSearch)
+    {
+        for (Trainer trainer : trainers)
+        {
+            if (trainer.getEmail().equals(emailSearch)) return trainer.toString();
+        }
+        return "\nThere are no members matching this email";
     }
 
 
