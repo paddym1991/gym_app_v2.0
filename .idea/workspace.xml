@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8152b929-9b77-458c-95f4-95f8926b1ed3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/controllers/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/StudentMember.java" afterPath="$PROJECT_DIR$/src/models/StudentMember.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +64,7 @@
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="207">
               <caret line="393" column="62" lean-forward="true" selection-start-line="393" selection-start-column="62" selection-end-line="393" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -840,7 +838,7 @@
       <workItem from="1493832414019" duration="38331000" />
       <workItem from="1493976609062" duration="22598000" />
       <workItem from="1494069137947" duration="6193000" />
-      <workItem from="1494501288928" duration="7525000" />
+      <workItem from="1494501288928" duration="8781000" />
     </task>
     <task id="LOCAL-00001" summary="Most classes created and setters and getters">
       <created>1493738322332</created>
@@ -919,11 +917,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494510564591</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="More changes to addMember in MenuController">
+      <created>1494514541393</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1494514541393</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131537000" />
+    <option name="totallyTimeSpent" value="132793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -939,7 +944,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30877572" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14951245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -978,7 +983,8 @@
     <MESSAGE value="Added methods to GymAPI to search for members by name and email&#10;implemented methods to search for members by email and name in MenuController&#10;&#10;Figured out sortedAssessmentDates (SortedSet/TreeSet) in Member Class" />
     <MESSAGE value="created addAssessment method in Members and MenuController (not finished)" />
     <MESSAGE value="GymApi: made changes to search methods for members and trainers&#10;MenuController: made changes to addMember and search member by email" />
-    <option name="LAST_COMMIT_MESSAGE" value="GymApi: made changes to search methods for members and trainers&#10;MenuController: made changes to addMember and search member by email" />
+    <MESSAGE value="More changes to addMember in MenuController" />
+    <option name="LAST_COMMIT_MESSAGE" value="More changes to addMember in MenuController" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1484,7 +1490,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="207">
           <caret line="393" column="62" lean-forward="true" selection-start-line="393" selection-start-column="62" selection-end-line="393" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
