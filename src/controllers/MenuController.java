@@ -3,6 +3,8 @@ package controllers;
 import models.*;
 import utils.ScannerInput;
 
+import java.util.Date;
+
 /**
  * Created by Paddym1991 on 03/05/2017.
  */
@@ -10,8 +12,7 @@ public class MenuController {
 
     private ScannerInput input;
     private GymApi gym;
-
-
+    private String trainerEmail;
 
     /**
      * <pre>
@@ -22,7 +23,7 @@ public class MenuController {
     {
         input = new ScannerInput();
         gym = new GymApi();
-
+        this.trainerEmail = trainerEmail;
         runGymMenu();
     }
 
@@ -192,7 +193,15 @@ public class MenuController {
                 case 3: //TODO: Search for a member by email
                         System.out.print("\tPlease enter email to search: ");
                         String emailSearch = input.getStringInput();
-                        System.out.println(gym.searchMemberEmail(emailSearch));
+                        Member foundM = gym.searchMembersByEmail(emailSearch);
+                        if (foundM != null)
+                        {
+                            System.out.println(foundM.toString());
+                        }
+                        else
+                        {
+                            System.out.println("There are no members matching this email: " + emailSearch);
+                        }
                     break;
                 case 4: //TODO: Search for a member by name
                         System.out.print("\tPlease enter name to search: ");
@@ -268,15 +277,30 @@ public class MenuController {
 
             System.out.print("\tName (max 30 chars): ");
             String name = input.getStringInput();
+            if (name.length() > 30)
+            {
+                name = name.substring(0, 30);
+            }
+            input.getStringInput();
 
             System.out.print("\tAddress: ");
             String address = input.getStringInput();
 
-            System.out.print("\tHeight (between 1 and 3 metres): ");
-            double height = input.validNextDouble("> ");
+           // System.out.print("\tHeight (between 1 and 3 metres): ");
+            double height = input.validNextDouble("Height (between 1 and 3 metres): ");
+            while ((height >= 1) && (height <= 3))
+            {
+                System.out.println("Invalid Entry\n");
+                height = input.validNextDouble("Enter height (between 1 and 3 metres): ");
+            }
 
-            System.out.print("\tStarting weight (between 35kg and 250kg): ");
-            double startingWeight = input.validNextDouble("> ");
+           // System.out.print("\tStarting weight (between 35kg and 250kg): ");
+            double startingWeight = input.validNextDouble("Starting weight (between 35kg and 250kg): ");
+            while (!((startingWeight >= 35) && (startingWeight <= 250)))
+            {
+                System.out.println("Invalid Entry\n");
+                startingWeight = input.validNextDouble("Enter weight (between 35kg and 250kg): ");
+            }
             input.getStringInput();
 
             System.out.print("\tGender (M/F): ");
@@ -289,8 +313,8 @@ public class MenuController {
             //If member type is student then user will give further information.
             if (memberType.equals("S"))
             {
-                System.out.print("\tstudentId: ");
-                int studentId = input.validNextInt("> ");
+                //System.out.print("\tstudentId: ");
+                int studentId = input.validNextInt("studentId: ");
 
 
                 System.out.print("\tCollege: ");
@@ -347,6 +371,7 @@ public class MenuController {
 
     private void addAssessment()
     {
+
         System.out.print("\tPlease enter email of the member you want to add assessment to: ");
         String emailSearch = input.getStringInput();
         if (!gym.isActiveMemberEmail(emailSearch)) {
@@ -374,12 +399,24 @@ public class MenuController {
 
             System.out.println("Trainer Comment on Assessment: ");
             String comment = input.getStringInput();
+
+            Trainer trainer = gym.searchMembersTrainerEmail(trainerEmail);
+
+            Assessment newAssessment = new Assessment(weight, chest, thigh,
+                    upperArm, waist, hips, comment, trainer);
+
+            Date date = new Date();
+
+            gym.searchMembersbyEmail(emailSearch).addAssessment(newAssessment);
+
+            //Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips, comment, trainer);
+
 /*
         System.out.println("Trainer Name: ");
-        Trainer trainer = gym.searchTrainerEmail(trainerEmail).toString();
+        Trainer trainer = gym.getTrainers().get() searchTrainerEmail(trainerEmail).toString();
 
         Assessment newAssessment = new Assessment(weight, chest, thigh,
-                upperArm, waist, hips, comment, gym.searchTrainerEmail(trainerEmail));
+                upperArm, waist, hips, comment, gym.searchMembersTrainerEmail(trainerEmail));
         Date date = new Date();
         gym.searchMembersByEmail(emailSearch).addAssessment(date, newAssessment);
 */

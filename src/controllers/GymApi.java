@@ -96,7 +96,13 @@ public class GymApi {
     //TODO:
     public Member searchMembersByEmail(String emailEntered)
     {
-        return null;
+        Member memberFound = null;
+
+        for (Member member : members)
+        {
+            if (member.getEmail().equals(emailEntered)) memberFound = member;
+        }
+        return memberFound;
     }
 
     //TODO:
@@ -106,9 +112,15 @@ public class GymApi {
     }
 
     //TODO:
-    public Person searchTrainersByEmail(String emailEntered)
+    public Trainer searchTrainersByEmail(String emailEntered)
     {
-        return null;
+        Trainer trainerFound = null;
+
+        for (Trainer trainer: trainers)
+        {
+            if (trainer.getEmail().equals(emailEntered)) trainerFound = trainer;
+        }
+        return trainerFound;
     }
 
     /**
@@ -337,6 +349,24 @@ public class GymApi {
             if (trainer.getEmail().equals(emailSearch)) return trainer.toString();
         }
         return "\nThere are no members matching this email";
+    }
+
+    public Trainer searchMembersTrainerEmail(String trainerEmail)
+    {
+        for (Trainer trainer : trainers)
+        {
+            if (trainer.getEmail().equals(trainerEmail)) return trainer;
+        }
+        return null;
+    }
+
+    public Member searchMembersbyEmail(String emailSearch)
+    {
+        for (Member member : members)
+        {
+            if (member.getEmail().equals(emailSearch)) return member;
+        }
+        return null;
     }
 
 
