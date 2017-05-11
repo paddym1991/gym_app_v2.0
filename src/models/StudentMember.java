@@ -8,10 +8,10 @@ import java.util.HashMap;
 public class StudentMember extends Member
 {
 
-    private int studentId;
+    private String studentId;
     private String collegeName;
 
-    public StudentMember(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage, int studentId, String collegeName)
+    public StudentMember(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage, String studentId, String collegeName)
     {
         super(email, name, address, gender, height, startingWeight, chosenPackage);
 
@@ -23,11 +23,11 @@ public class StudentMember extends Member
 
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

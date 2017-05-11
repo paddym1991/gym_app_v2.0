@@ -261,6 +261,12 @@ public class MenuController {
         //User asked whether the member being added is a student or not
         System.out.println("Student or Premium ('S' or 'P'): ");
         String memberType = input.getStringInput().toUpperCase();
+        while (!((memberType.equals("S")) || (memberType.equals("P"))))
+        {
+            System.out.println("Invalid Option!\n");
+            System.out.println("Please enter Student or Premium ('S' or 'P'): ");
+            memberType = input.getStringInput().toUpperCase();
+        }
         if ((memberType.equals("S")) || (memberType.equals("P")))
         {
             //following member details are to be given
@@ -281,14 +287,13 @@ public class MenuController {
             {
                 name = name.substring(0, 30);
             }
-            input.getStringInput();
 
             System.out.print("\tAddress: ");
             String address = input.getStringInput();
 
            // System.out.print("\tHeight (between 1 and 3 metres): ");
-            double height = input.validNextDouble("Height (between 1 and 3 metres): ");
-            while ((height >= 1) && (height <= 3))
+            double height = input.validNextDouble("\tHeight (between 1 and 3 metres): ");
+            while (!((height >= 1) && (height <= 3)))
             {
                 System.out.println("Invalid Entry\n");
                 height = input.validNextDouble("Enter height (between 1 and 3 metres): ");
@@ -301,11 +306,15 @@ public class MenuController {
                 System.out.println("Invalid Entry\n");
                 startingWeight = input.validNextDouble("Enter weight (between 35kg and 250kg): ");
             }
-            input.getStringInput();
 
             System.out.print("\tGender (M/F): ");
-
-            String gender = input.getStringInput();
+            String gender = input.getStringInput().toUpperCase();
+            while (!((gender.equals("F")) || (gender.equals("M"))))
+            {
+                System.out.println("Invalid Option\n");
+                System.out.println("Please enter Gender (M/F): ");
+                gender = input.getStringInput().toUpperCase();
+            }
 
             System.out.print("\tChosen Package: ");
             String chosenPackage = input.getStringInput();
@@ -313,9 +322,9 @@ public class MenuController {
             //If member type is student then user will give further information.
             if (memberType.equals("S"))
             {
-                //System.out.print("\tstudentId: ");
-                int studentId = input.validNextInt("studentId: ");
-
+                System.out.print("\tstudentId: ");
+                String studentId = input.getStringInput();
+                input.getStringInput();
 
                 System.out.print("\tCollege: ");
                 String collegeName = input.getStringInput();
