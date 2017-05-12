@@ -836,7 +836,7 @@
       <workItem from="1493976609062" duration="22598000" />
       <workItem from="1494069137947" duration="6193000" />
       <workItem from="1494501288928" duration="8813000" />
-      <workItem from="1494577402763" duration="23642000" />
+      <workItem from="1494577402763" duration="23733000" />
     </task>
     <task id="LOCAL-00001" summary="Most classes created and setters and getters">
       <created>1493738322332</created>
@@ -943,11 +943,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494600833612</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="put in update comment for member in MenuController">
+      <created>1494607822181</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1494607822181</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156467000" />
+    <option name="totallyTimeSpent" value="156558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1005,7 +1012,8 @@
     <MESSAGE value="More changes to addMember in MenuController" />
     <MESSAGE value="Made changes to trainerMenu and addAssessment in MenuController to get addAssessment to work.&#10;Made changes to searchMembersByName in GymApi to make it more detailed.&#10;Made small changes in other Classes." />
     <MESSAGE value="searchMemberByName method update in GymApi to notify user if members do not exist and no member matches search.&#10;gender input updated in addTrainer in MenuController" />
-    <option name="LAST_COMMIT_MESSAGE" value="searchMemberByName method update in GymApi to notify user if members do not exist and no member matches search.&#10;gender input updated in addTrainer in MenuController" />
+    <MESSAGE value="put in update comment for member in MenuController" />
+    <option name="LAST_COMMIT_MESSAGE" value="put in update comment for member in MenuController" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

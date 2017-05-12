@@ -242,8 +242,26 @@ public class MenuController {
                         }
                         else if (assessmentChoice == 2)
                         {
-                            System.out.println("update comment for a member");
-                            //TODO: update comment
+                            {
+                                System.out.print("\tPlease enter email of the member you want to add assessment to: ");
+                                String memberEmailComSearch = input.getStringInput().toUpperCase();
+                                Member commentMember = gym.searchMembersByEmail(memberEmailComSearch);
+
+                                if (commentMember == null)
+                                {
+                                    System.out.println("There are no members matching this email!");
+                                    input.getStringInput();
+                                }
+                                else
+                                {
+                                    System.out.println("Update Comment for: \n" + commentMember.latestAssessment());
+                                    System.out.println("Enter updated comment: ");
+                                    String commentUpdate = input.getStringInput();
+
+                                    commentMember.latestAssessment().setComment(commentUpdate);
+                                    System.out.println("Comment updated for " + commentMember.getName());
+                                }
+                            }
                         }
                         else
                         {
