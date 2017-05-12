@@ -382,7 +382,13 @@ public class MenuController {
         String address = input.getStringInput();
 
         System.out.print("\tGender (M/F): ");
-        String gender = input.getStringInput();
+        String gender = input.getStringInput().toUpperCase();
+        while (!((gender.equals("F")) || (gender.equals("M"))))
+        {
+            System.out.println("Invalid Option\n");
+            System.out.println("Please enter Gender (M/F): ");
+            gender = input.getStringInput().toUpperCase();
+        }
 
         System.out.print("\tSpeciality: ");
         String speciality = input.getStringInput();

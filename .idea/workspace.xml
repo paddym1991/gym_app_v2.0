@@ -5,11 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/GymApi.java" afterPath="$PROJECT_DIR$/src/controllers/GymApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/controllers/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Assessment.java" afterPath="$PROJECT_DIR$/src/models/Assessment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Member.java" afterPath="$PROJECT_DIR$/src/models/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Person.java" afterPath="$PROJECT_DIR$/src/models/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/PremiumMember.java" afterPath="$PROJECT_DIR$/src/models/PremiumMember.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/StudentMember.java" afterPath="$PROJECT_DIR$/src/models/StudentMember.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,8 +50,8 @@
       <file leaf-file-name="GymApi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="117" column="133" lean-forward="false" selection-start-line="117" selection-start-column="133" selection-end-line="117" selection-end-column="133" />
+            <state relative-caret-position="98">
+              <caret line="126" column="56" lean-forward="true" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,8 +62,8 @@
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="236" column="8" lean-forward="false" selection-start-line="236" selection-start-column="8" selection-end-line="236" selection-end-column="8" />
+            <state relative-caret-position="334">
+              <caret line="242" column="55" lean-forward="true" selection-start-line="242" selection-start-column="55" selection-end-line="242" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,8 +170,8 @@
         <option value="$PROJECT_DIR$/src/models/PremiumMember.java" />
         <option value="$PROJECT_DIR$/src/models/StudentMember.java" />
         <option value="$PROJECT_DIR$/src/models/Member.java" />
-        <option value="$PROJECT_DIR$/src/controllers/GymApi.java" />
         <option value="$PROJECT_DIR$/src/controllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/GymApi.java" />
       </list>
     </option>
   </component>
@@ -842,7 +837,7 @@
       <workItem from="1493976609062" duration="22598000" />
       <workItem from="1494069137947" duration="6193000" />
       <workItem from="1494501288928" duration="8813000" />
-      <workItem from="1494577402763" duration="16271000" />
+      <workItem from="1494577402763" duration="20894000" />
     </task>
     <task id="LOCAL-00001" summary="Most classes created and setters and getters">
       <created>1493738322332</created>
@@ -935,11 +930,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494521200730</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Made changes to trainerMenu and addAssessment in MenuController to get addAssessment to work.&#10;Made changes to searchMembersByName in GymApi to make it more detailed.&#10;Made small changes in other Classes.">
+      <created>1494595298206</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1494595298206</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149096000" />
+    <option name="totallyTimeSpent" value="153719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -955,7 +957,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14951245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2156013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -995,7 +997,8 @@
     <MESSAGE value="created addAssessment method in Members and MenuController (not finished)" />
     <MESSAGE value="GymApi: made changes to search methods for members and trainers&#10;MenuController: made changes to addMember and search member by email" />
     <MESSAGE value="More changes to addMember in MenuController" />
-    <option name="LAST_COMMIT_MESSAGE" value="More changes to addMember in MenuController" />
+    <MESSAGE value="Made changes to trainerMenu and addAssessment in MenuController to get addAssessment to work.&#10;Made changes to searchMembersByName in GymApi to make it more detailed.&#10;Made small changes in other Classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made changes to trainerMenu and addAssessment in MenuController to get addAssessment to work.&#10;Made changes to searchMembersByName in GymApi to make it more detailed.&#10;Made small changes in other Classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1446,16 +1449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="117" column="133" lean-forward="false" selection-start-line="117" selection-start-column="133" selection-end-line="117" selection-end-column="133" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/ScannerInput.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1467,10 +1460,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="126" column="56" lean-forward="true" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="236" column="8" lean-forward="false" selection-start-line="236" selection-start-column="8" selection-end-line="236" selection-end-column="8" />
+        <state relative-caret-position="334">
+          <caret line="242" column="55" lean-forward="true" selection-start-line="242" selection-start-column="55" selection-end-line="242" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

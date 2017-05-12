@@ -108,7 +108,29 @@ public class GymApi {
     //TODO:
     public String searchMembersByName(String nameEntered)
     {
-        return null;
+        String membersFound = "";
+
+        if(numberOfMembers() > 0)
+        {
+            for (int i = 0; isValidMemberIndex(i); i++) {
+                Member member = members.get(i);
+                if (member.getName().toUpperCase().contains(nameEntered.toUpperCase())) {
+                     membersFound += "\n" + (i + 1) + ": " + member.getName() + "\tEmail: " + member.getEmail().toLowerCase();
+                }
+            }
+            if (membersFound.equals(""))
+            {
+                return "There are no members matching your search: " + nameEntered;
+            }
+            else
+            {
+                return "Results Found: " + membersFound;
+            }
+        }
+        else
+        {
+            return "There are no members in the gym";
+        }
     }
 
     //TODO:
