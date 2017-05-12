@@ -27,7 +27,7 @@ public abstract class Person
     public Person (String email, String name, String address, String gender)
     {
         //no validation on email
-        this.email = email;
+        this.email = email.toUpperCase();
         //name to be no more than 30 characters. If it exceed it gets truncated to 30
         if (name.length() > 30)
         {

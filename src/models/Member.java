@@ -105,8 +105,6 @@ public abstract class Member extends Person
     //TODO
     public SortedSet<Date> sortedAssessmentDates()
     {
-        //return sortedAssessmentDates;
-
         SortedSet<Date> keys = new TreeSet<Date>(assessment.keySet());
         return keys;
     }

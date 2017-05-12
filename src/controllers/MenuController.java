@@ -60,7 +60,7 @@ public class MenuController {
             {
                 case 1: input.getStringInput();
                         System.out.println("Please enter your email address: ");
-                        String memberEmail = input.getStringInput();
+                        String memberEmail = input.getStringInput().toUpperCase();
                     //TODO: verify email
                         if (!gym.isActiveMemberEmail(memberEmail))
                         {
@@ -74,7 +74,7 @@ public class MenuController {
                 break;
                 case 2: input.getStringInput();
                         System.out.println("Please enter your email address: ");
-                        String trainerEmail = input.getStringInput();
+                        String trainerEmail = input.getStringInput().toUpperCase();
                     //TODO: verify email
                         if (!gym.isActiveTrainerEmail(trainerEmail))
                         {
@@ -83,7 +83,7 @@ public class MenuController {
                             runGymMenu();
                         }
                         else {
-                            runTrainerMenu();
+                            runTrainerMenu(gym.searchTrainersByEmail(trainerEmail));
                         }
                 break;
                 case 3: addMember();
@@ -179,7 +179,7 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
-    private void runTrainerMenu()
+    private void runTrainerMenu(Trainer thisTrainer)
     {
         int userOption = trainerMenu();
         while (userOption != 0)
@@ -192,7 +192,7 @@ public class MenuController {
                     break;
                 case 3: //TODO: Search for a member by email
                         System.out.print("\tPlease enter email to search: ");
-                        String emailSearch = input.getStringInput();
+                        String emailSearch = input.getStringInput().toUpperCase();
                         Member foundM = gym.searchMembersByEmail(emailSearch);
                         if (foundM != null)
                         {
@@ -206,7 +206,7 @@ public class MenuController {
                 case 4: //TODO: Search for a member by name
                         System.out.print("\tPlease enter name to search: ");
                         String nameSearch = input.getStringInput();
-                        System.out.println(gym.searchMemberName(nameSearch));
+                        System.out.println(gym.searchMembersByName(nameSearch));
                     break;
                 case 5: System.out.println(gym.listMembersWithIdealWeight());
                     break;
@@ -217,15 +217,28 @@ public class MenuController {
                     //input.nextLine();
                         System.out.println(gym.listBySpecificBMICategory(category));
                     break;
+
+                //user given 2 options (one for addAssessment and one for update comment)
+                //if user selects 1, they will be prompted to enter email for member they wish to assess.
+                //if this member is found then addAssessment() method will be called
                 case 7: System.out.println(" 1) Add Assessment for a member.");
                         System.out.println(" 2) Update comment on an assessment for a member.");
-                        int assessmentChoice = input.validNextInt("> ");
+                        int assessmentChoice = input.validNextInt("\nPlease choose an option (1 or 2): ");
                         if (assessmentChoice == 1)
                         {
-                     //       Member.setAssessment(assessment);
-                            System.out.println("Add assessment for a member");
-                            addAssessment();
-                        //    Member.assessment.put("")
+                            System.out.print("\tPlease enter email of the member you want to add assessment to: ");
+                            String assessmentEmailSearch = input.getStringInput().toUpperCase();
+                            Member assessedMember = gym.searchMembersByEmail(assessmentEmailSearch);
+
+                            if (assessedMember == null)
+                            {
+                                System.out.println("There are no members matching this email!");
+                                input.getStringInput();
+                            }
+                            else
+                            {
+                                addAssessment(thisTrainer, assessedMember);
+                            }
                         }
                         else if (assessmentChoice == 2)
                         {
@@ -256,7 +269,7 @@ public class MenuController {
     {
         //String memberType = "";
         //memberType = memberType.toUpperCase();
-        input.getStringInput();
+        //input.getStringInput();
 
         //User asked whether the member being added is a student or not
         System.out.println("Student or Premium ('S' or 'P'): ");
@@ -273,12 +286,12 @@ public class MenuController {
             System.out.println("Please enter the following member details...");
 
             System.out.print("\temail: ");
-            String email = input.getStringInput();
+            String email = input.getStringInput().toUpperCase();
             while ((gym.isActiveMemberEmail(email)) || (gym.isActiveTrainerEmail(email)))
             {
                 System.out.println("Email already exists\n");
                 System.out.println("Please enter another Email address:");
-                email = input.getStringInput();
+                email = input.getStringInput().toUpperCase();
             }
 
             System.out.print("\tName (max 30 chars): ");
@@ -350,17 +363,16 @@ public class MenuController {
 
     private void addTrainer()
     {
-        input.getStringInput();
-        System.out.println("Please enter the following member details...");
+        System.out.println("Please enter the following trainer details...");
 
         //TODO: if email is already in use, tell them invalid, ask to submit again.
         System.out.print("\temail: ");
-        String email = input.getStringInput();
+        String email = input.getStringInput().toUpperCase();
         while ((gym.isActiveMemberEmail(email)) || (gym.isActiveTrainerEmail(email)))
         {
             System.out.println("Email already exists\n");
             System.out.println("Please enter another Email address:");
-            email = input.getStringInput();
+            email = input.getStringInput().toUpperCase();
         }
 
         System.out.print("\tName (max 30 chars): ");
@@ -378,37 +390,32 @@ public class MenuController {
         gym.addTrainer(new Trainer(email, name, address, gender, speciality));
     }
 
-    private void addAssessment()
+    private void addAssessment(Trainer assessingTrainer, Member assessedMember)
     {
+        System.out.println("New Assessment for: \n" + assessedMember.toString());
 
-        System.out.print("\tPlease enter email of the member you want to add assessment to: ");
-        String emailSearch = input.getStringInput();
-        if (!gym.isActiveMemberEmail(emailSearch)) {
-            System.out.println("There are no members matching this email!");
-            input.getStringInput();
-        }
-        else {
-            System.out.println("Current Weight: ");
-            double weight = input.validNextDouble("> ");
+        System.out.println("\n");
+        double weight = input.validNextDouble("Current Weight: ");
 
-            System.out.println("Current Chest Measurement: ");
-            double chest = input.validNextDouble("> ");
+        double chest = input.validNextDouble("Current Chest Measurement: ");
 
-            System.out.println("Current Thigh Measurement: ");
-            double thigh = input.validNextDouble("> ");
+        double thigh = input.validNextDouble("Current Thigh Measurement: ");
 
-            System.out.println("Current Upper Arm Measurement: .");
-            double upperArm = input.validNextDouble("> ");
+        double upperArm = input.validNextDouble("Current Upper Arm Measurement: ");
 
-            System.out.println("Current Waist Measurement: ");
-            double waist = input.validNextDouble("> ");
+        double waist = input.validNextDouble("Current Waist Measurement: ");
 
-            System.out.println("Current Hip Measurement: ");
-            double hips = input.validNextDouble("> ");
+        double hips = input.validNextDouble("Current Hip Measurement: ");
 
-            System.out.println("Trainer Comment on Assessment: ");
-            String comment = input.getStringInput();
+        System.out.println("Trainer Comment on Assessment: ");
+        String comment = input.getStringInput();
 
+        assessedMember.addAssessment(new Assessment(weight, chest, thigh, upperArm, waist, hips, comment, assessingTrainer));
+
+        //TODO: check to see whether assessment has been added
+        System.out.println("Assessment for " + assessedMember.getName() + " successfully added.");
+
+            /*
             Trainer trainer = gym.searchMembersTrainerEmail(trainerEmail);
 
             Assessment newAssessment = new Assessment(weight, chest, thigh,
@@ -416,10 +423,10 @@ public class MenuController {
 
             Date date = new Date();
 
-            gym.searchMembersbyEmail(emailSearch).addAssessment(newAssessment);
+            gym.searchMembersByEmail(emailSearch).addAssessment(newAssessment);
 
             //Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips, comment, trainer);
-
+*/
 /*
         System.out.println("Trainer Name: ");
         Trainer trainer = gym.getTrainers().get() searchTrainerEmail(trainerEmail).toString();
@@ -429,7 +436,6 @@ public class MenuController {
         Date date = new Date();
         gym.searchMembersByEmail(emailSearch).addAssessment(date, newAssessment);
 */
-        }
     }
 
     //TODO: not sure whether to use this above or not

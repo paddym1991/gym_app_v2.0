@@ -92,7 +92,7 @@ public class Assessment {
         this.trainer = trainer;
     }
 
-    //TODO: Add toString method
+    @Override
     public String toString()
     {
         return "Weight: " + getWeight() + " Kgs"

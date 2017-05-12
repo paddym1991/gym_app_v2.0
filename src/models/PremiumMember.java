@@ -15,6 +15,7 @@ public class PremiumMember extends Member
 
     //Provides the concrete implementation for this method.  The chosenPackage is set to the value passed as a parameter.
     // There is no validation on the entered data.
+    @Override
     public void chosenPackage(String packageChoice)
     {
       //  super.chosenPackage = chosenPackage(packageChoice);
