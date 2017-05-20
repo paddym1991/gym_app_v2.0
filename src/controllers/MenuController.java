@@ -69,7 +69,7 @@ public class MenuController {
                             runGymMenu();
                         }
                         else {
-                            runMemberMenu();
+                            runMemberMenu(gym.searchMembersByEmail(memberEmail));
                         }
                 break;
                 case 2: input.getStringInput();
@@ -126,18 +126,18 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
-    private void runMemberMenu()
+    private void runMemberMenu(Member thisMember)
     {
         int userOption = memberMenu();
         while (userOption != 0)
         {
             switch (userOption)
             {
-                case 1:
+                case 1: System.out.println(thisMember.toString());
                     break;
-                case 2:
+                case 2: runUpdateProfile(thisMember);
                     break;
-                case 3:
+                case 3: runProgressSubMenu(thisMember);
                     break;
                 case 4:
                     break;
@@ -243,7 +243,7 @@ public class MenuController {
                         else if (assessmentChoice == 2)
                         {
                             {
-                                System.out.print("\tPlease enter email of the member you want to add assessment to: ");
+                                System.out.print("\tPlease enter email of the member you want to add comment to: ");
                                 String memberEmailComSearch = input.getStringInput().toUpperCase();
                                 Member commentMember = gym.searchMembersByEmail(memberEmailComSearch);
 
@@ -270,7 +270,48 @@ public class MenuController {
                         }
                     break;
                 case 8: //TODO: reports sub-menu
-                    break;
+                    int reportOption = reportSubMenu();
+                    while (reportOption != 0)
+                    {
+                        switch (reportOption) {
+                            case 1:
+                                System.out.print("\tPlease enter email to search: ");
+                                String memberEmailReportSearch = input.getStringInput().toUpperCase();
+                                Member reportMember = gym.searchMembersByEmail(memberEmailReportSearch);
+
+                                if (reportMember == null) {
+                                    System.out.println("There are no members matching this email!");
+                                    input.getStringInput();
+                                } else {
+                                    runProgressSubMenu(reportMember);
+                                }
+                                break;
+                            case 2:
+                                System.out.print("\tPlease enter name to search: ");
+                                String memberNameReportSearch = input.getStringInput();
+                                System.out.println(gym.searchMembersByName(memberNameReportSearch));
+
+                                System.out.print("\tVerify name of member: ");
+                                String verifyName = input.getStringInput();
+
+                                for (int i = 0; gym.isValidMemberIndex(i); i++) {
+                                    Member verifiedMember = gym.getMembers().get(i);
+                                    if (verifiedMember.getName().toUpperCase().equals(verifyName.toUpperCase())) {
+                                        runProgressSubMenu(verifiedMember);
+                                    }
+                                }
+                            case 3:
+                                break;
+                            default:
+                                System.out.println("\nInvalid option entered: " + reportOption);
+                                break;
+                        }
+                            System.out.println("\nPress Enter to continue. . .");
+                            input.getStringInput();
+                            input.getStringInput();
+                            reportOption = reportSubMenu();
+                    }
+                    runTrainerMenu(thisTrainer);
                 default: System.out.println("\nInvalid option entered: " + userOption);
                     break;
             }
@@ -281,6 +322,91 @@ public class MenuController {
             userOption = trainerMenu();
         }
         runGymMenu();
+    }
+
+    private int reportSubMenu()
+    {
+        System.out.println("\fReport Sub Menu");
+        System.out.println("---------");
+        System.out.println("  1) Specific member progress (via email search)");
+        System.out.println("  2) Specific member progress (via name search)");
+        System.out.println("  3) Overall members’ report");
+        System.out.println("---------");
+        System.out.println("  0) Back to Trainer Menu");
+
+        return input.validNextInt("> ");
+    }
+
+    private int progressSubMenu()
+    {
+        System.out.println("\fProgress Sub Menu");
+        System.out.println("---------");
+        System.out.println("  1) View progress by weight");
+        System.out.println("  2) View progress by chest measurement");
+        System.out.println("  3) View progress by thigh measurement");
+        System.out.println("  4) View progress by upper arm measurement");
+        System.out.println("  5) View progress by waist measurement");
+        System.out.println("  6) View progress by hips measurement");
+        System.out.println("---------");
+        System.out.println("  0) Exit to Main Menu");
+
+        return input.validNextInt("> ");
+    }
+
+    private void runProgressSubMenu(Member thisMember) {
+        if (thisMember.getAssessment().size() > 0) {
+            int progressOption = progressSubMenu();
+            while (progressOption != 0) {
+                switch (progressOption) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    default:
+
+                }
+            }
+        }
+        else
+        {
+            System.out.println("No assessments available for " + thisMember.getName());
+        }
+    }
+
+    private int updateProfile()
+    {
+        System.out.println("\fUpdate Profile");
+        System.out.println("---------");
+        System.out.println("  1) Update Email");
+        System.out.println("  2) Update Name");
+        System.out.println("  3) Update Address");
+        System.out.println("  4) Update Gender");
+        System.out.println("  5) Update Height");
+        System.out.println("  6) Update Starting Weight");
+        System.out.println("  6) Update Package");
+        System.out.println("---------");
+        System.out.println("  0) Exit to Main Menu");
+
+        return input.validNextInt("> ");
+    }
+
+    private void runUpdateProfile(Member thisMember) {
+        int updateOption = updateProfile();
+        while (updateOption != 0)
+        {
+            switch (updateOption)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                default:
+            }
+        }
     }
 
     private void addMember()
