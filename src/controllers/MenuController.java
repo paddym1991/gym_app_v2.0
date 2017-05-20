@@ -58,8 +58,7 @@ public class MenuController {
         {
             switch (userOption)
             {
-                case 1: input.getStringInput();
-                        System.out.println("Please enter your email address: ");
+                case 1: System.out.println("Please enter your email address: ");
                         String memberEmail = input.getStringInput().toUpperCase();
                     //TODO: verify email
                         if (!gym.isActiveMemberEmail(memberEmail))
@@ -72,8 +71,7 @@ public class MenuController {
                             runMemberMenu(gym.searchMembersByEmail(memberEmail));
                         }
                 break;
-                case 2: input.getStringInput();
-                        System.out.println("Please enter your email address: ");
+                case 2: System.out.println("Please enter your email address: ");
                         String trainerEmail = input.getStringInput().toUpperCase();
                     //TODO: verify email
                         if (!gym.isActiveTrainerEmail(trainerEmail))
@@ -95,7 +93,6 @@ public class MenuController {
                 break;
             }
             System.out.println("\nPress Enter to continue. . .");
-            input.getStringInput();
             input.getStringInput();
            // input.nextLine();
             //input.nextLine();
@@ -122,7 +119,7 @@ public class MenuController {
         System.out.println("  1) View profile");
         System.out.println("  2) Update profile");
         System.out.println("  3) Progress");
-        System.out.println("  0) Exit to Main Menu");
+        System.out.println("  0) Logout");
         return input.validNextInt("> ");
     }
 
@@ -138,8 +135,6 @@ public class MenuController {
                 case 2: runUpdateProfile(thisMember);
                     break;
                 case 3: runProgressSubMenu(thisMember);
-                    break;
-                case 4:
                     break;
                 default: System.out.println("\nInvalid option entered: " + userOption);
                     break;
@@ -170,11 +165,11 @@ public class MenuController {
         System.out.println("  3) Search for a member (by email)");
         System.out.println("  4) Search for a member (by name)");
         System.out.println("---------");
-        System.out.println("  5) List members with ideal starting weight");
+        System.out.println("  5) List members with ideal body weight");
         System.out.println("  6) List members with a specific BMI category");
         System.out.println("  7) Assessment sub-menu");
         System.out.println("  8) Reports sub-menu");
-        System.out.println("  0) Exit to Main Menu");
+        System.out.println("  0) Logout");
 
         return input.validNextInt("> ");
     }
@@ -211,8 +206,7 @@ public class MenuController {
                 case 5: System.out.println(gym.listMembersWithIdealWeight());
                     break;
                 case 6: //System.out.println("");gym.listBySpecificBMICategory(members);
-                        System.out.print("Please enter a specific BMI category: ");
-                        input.getStringInput();
+                        System.out.print("\nPlease enter a specific BMI category: \n");
                         String category = input.getStringInput();
                     //input.nextLine();
                         System.out.println(gym.listBySpecificBMICategory(category));
@@ -317,8 +311,7 @@ public class MenuController {
             }
             System.out.println("\nPress Enter to continue. . .");
             input.getStringInput();
-            // input.nextLine();
-            //input.nextLine();
+            input.getStringInput();
             userOption = trainerMenu();
         }
         runGymMenu();
@@ -385,9 +378,9 @@ public class MenuController {
         System.out.println("  4) Update Gender");
         System.out.println("  5) Update Height");
         System.out.println("  6) Update Starting Weight");
-        System.out.println("  6) Update Package");
+        System.out.println("  7) Update Package");
         System.out.println("---------");
-        System.out.println("  0) Exit to Main Menu");
+        System.out.println("  0) Exit to Member Menu");
 
         return input.validNextInt("> ");
     }
@@ -398,22 +391,88 @@ public class MenuController {
         {
             switch (updateOption)
             {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
+                case 1: System.out.println("Enter new name: ");
+                        String nameUpdate = input.getStringInput();
+                        thisMember.setName(nameUpdate);
+
+                        System.out.println("Name successfully changed to " + thisMember.getName());
+                        break;
+
+                case 2: System.out.println("Enter new email: ");
+                        String emailUpdate = input.getStringInput().toUpperCase();
+                        while ((gym.isActiveMemberEmail(emailUpdate)) || (gym.isActiveTrainerEmail(emailUpdate)))
+                        {
+                            System.out.println("Email already exists\n");
+                            System.out.println("Please enter another Email address:");
+                            emailUpdate = input.getStringInput().toUpperCase();
+                        }
+                        thisMember.setEmail(emailUpdate);
+
+                        System.out.println("Email successfully changed to " + thisMember.getEmail());
+                        break;
+
+                case 3: System.out.println("Enter new address: ");
+                        String addressUpdate = input.getStringInput();
+                        thisMember.setAddress(addressUpdate);
+
+                        System.out.println("Address successfully changed to " + thisMember.getAddress());
+                        break;
+
+                case 4: System.out.println("\tEnter new gender (M/F): ");
+                        String genderUpdate = input.getStringInput().toUpperCase();
+                        while (!((genderUpdate.equals("F")) || (genderUpdate.equals("M"))))
+                        {
+                            System.out.println("Invalid Option\n");
+                            System.out.println("Please enter Gender (M/F): ");
+                            genderUpdate = input.getStringInput().toUpperCase();
+                        }
+                        thisMember.setGender(genderUpdate);
+
+                        System.out.println("Gender successfully changed to " + thisMember.getGender());
+                        break;
+
+                case 5: double heightUpdate = input.validNextDouble("\tEnter new height (between 1 and 3 metres): ");
+                        while (!((heightUpdate >= 1) && (heightUpdate <= 3)))
+                        {
+                            System.out.println("Invalid Entry\n");
+                            heightUpdate = input.validNextDouble("Enter height (between 1 and 3 metres): ");
+                        }
+                        thisMember.setHeight(heightUpdate);
+
+                        System.out.println("Height successfully changed to " + thisMember.getHeight());
+                        break;
+
+                case 6: double startingWeightUpdate = input.validNextDouble("Enter starting weight (between 35kg and 250kg): ");
+                        while (!((startingWeightUpdate >= 35) && (startingWeightUpdate <= 250)))
+                        {
+                            System.out.println("Invalid Entry\n");
+                            startingWeightUpdate = input.validNextDouble("Enter starting weight (between 35kg and 250kg): ");
+                        }
+                        thisMember.setStartingWeight(startingWeightUpdate);
+
+                        System.out.println("Starting Weight successfully changed to " + thisMember.getStartingWeight());
+                        break;
+
+                case 7: System.out.print("\tEnter new Package: ");
+                        String chosenPackageUpdate = input.getStringInput();
+                        thisMember.setChosenPackage(chosenPackageUpdate);
+
+                        System.out.println("Package successfully changed to " + thisMember.getChosenPackage());
+                        break;
+
                 default:
             }
+            System.out.println("\nPress Enter to continue. . .");
+            input.getStringInput();
+            updateOption = updateProfile();
         }
+        runMemberMenu(thisMember);
     }
 
     private void addMember()
     {
-        //String memberType = "";
-        //memberType = memberType.toUpperCase();
-        //input.getStringInput();
+        System.out.println("\nMEMBER REGISTRATION");
+        System.out.println("-------------------\n");
 
         //User asked whether the member being added is a student or not
         System.out.println("Student or Premium ('S' or 'P'): ");
@@ -448,6 +507,15 @@ public class MenuController {
             System.out.print("\tAddress: ");
             String address = input.getStringInput();
 
+            System.out.print("\tGender (M/F): ");
+            String gender = input.getStringInput().toUpperCase();
+            while (!((gender.equals("F")) || (gender.equals("M"))))
+            {
+                System.out.println("Invalid Option\n");
+                System.out.println("Please enter Gender (M/F): ");
+                gender = input.getStringInput().toUpperCase();
+            }
+
            // System.out.print("\tHeight (between 1 and 3 metres): ");
             double height = input.validNextDouble("\tHeight (between 1 and 3 metres): ");
             while (!((height >= 1) && (height <= 3)))
@@ -457,20 +525,11 @@ public class MenuController {
             }
 
            // System.out.print("\tStarting weight (between 35kg and 250kg): ");
-            double startingWeight = input.validNextDouble("Starting weight (between 35kg and 250kg): ");
+            double startingWeight = input.validNextDouble("\tStarting weight (between 35kg and 250kg): ");
             while (!((startingWeight >= 35) && (startingWeight <= 250)))
             {
                 System.out.println("Invalid Entry\n");
                 startingWeight = input.validNextDouble("Enter weight (between 35kg and 250kg): ");
-            }
-
-            System.out.print("\tGender (M/F): ");
-            String gender = input.getStringInput().toUpperCase();
-            while (!((gender.equals("F")) || (gender.equals("M"))))
-            {
-                System.out.println("Invalid Option\n");
-                System.out.println("Please enter Gender (M/F): ");
-                gender = input.getStringInput().toUpperCase();
             }
 
             System.out.print("\tChosen Package: ");
@@ -501,8 +560,7 @@ public class MenuController {
             //if neither 'S' nor 'P' wer chosen this message will follow. User will then exit back to menu
             System.out.println("Invalid Option");
         }
-        input.getStringInput();
-        System.out.println("Member successfully added!");
+        System.out.println("\nMember successfully added!");
     }
 
     private void addTrainer()

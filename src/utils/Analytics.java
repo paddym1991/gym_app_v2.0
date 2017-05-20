@@ -10,30 +10,24 @@ import models.Member;
 public class Analytics
 {
 
-
-    private Member member;
-
-    public Analytics ()
-    {
-
-    }
-
     /**
      * This method calculates the BMI value for the member.
      *
      * @return the BMI value for the member. The number returned is truncated to two decimal places.
      */
-    public static double calculateBMI (Member member, Assessment assessment)
+    public static double calculateBMI(Member member, Assessment assessment)
     {
-        double bmiValue = toTwoDecimalPlaces(member.getStartingWeight() / (member.getHeight() * member.getHeight()));
-        return bmiValue;
-        //TODO: whats the deal with assessment parameter?
+        return toTwoDecimalPlaces(assessment.getWeight() / (member.getHeight() * member.getHeight()));
+    }
+
+    public static double calculateBMINoAssess(Member member)
+    {
+        return toTwoDecimalPlaces(member.getStartingWeight() / (member.getHeight() * member.getHeight()));
     }
 
     /**
      * The method truncates a double to 2 decimal places.
      */
-    //TODO: should this be static
     public static double toTwoDecimalPlaces(double num)
     {
         return (int)(num * 100) / 100.0;
@@ -108,7 +102,7 @@ public class Analytics
     //TODO: should this be static?
     public static boolean isIdealBodyWeight(Member member, Assessment assessment)
     {
-        double heightToInches = convertHeightMetresToInches(member.getHeight()); //TODO: may change this to assessment.getHeight()
+        double heightToInches = convertHeightMetresToInches(member);
         int fiveFeet = 60;
         double idealBodyWeight = 0.0;
 
@@ -126,7 +120,37 @@ public class Analytics
             }
         }
 
-        if ((idealBodyWeight >= (member.getStartingWeight() - 2)) && (idealBodyWeight <= (member.getStartingWeight() + 2)))
+        if ((idealBodyWeight >= (assessment.getWeight() - 2)) && (idealBodyWeight <= (assessment.getWeight() + 2)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static boolean isIdealBodyWeightNoAssess(Member member)
+    {
+        double heightToInches = convertHeightMetresToInches(member);
+        int fiveFeet = 60;
+        double idealWeight = 0.0;
+
+        if (heightToInches <= fiveFeet) {
+            if (member.getGender().equals("M")) {
+                idealWeight = 50;
+            } else {
+                idealWeight = 45.5;
+            }
+        } else {
+            if (member.getGender().equals("M")) {
+                idealWeight = 50 + (2.3 * (heightToInches - fiveFeet));
+            } else {
+                idealWeight = 45.5 + (2.3 * (heightToInches - fiveFeet));
+            }
+        }
+
+        if ((idealWeight >= (member.getStartingWeight() - 2)) && (idealWeight <= (member.getStartingWeight() + 2)))
         {
             return true;
         }
@@ -141,13 +165,9 @@ public class Analytics
      *
      * @return member height converted from metres to inches using the formula: meters multiplied by 39.37. The number returned is truncated to two decimal places.
      */
-    public static double convertHeightMetresToInches(double height)
+    public static double convertHeightMetresToInches(Member member)
     {
-        //double heightToInches = height * 39.37;
-        //return toTwoDecimalPlaces(heightToInches);
-        //TODO: created a member field at the top. is that ok?
-        return toTwoDecimalPlaces(height * 39.37);
-        //truncate this to 2 decimal places;
+        return toTwoDecimalPlaces(member.getHeight() * 39.37);
     }
 
     /**

@@ -10,6 +10,7 @@ import models.Trainer;
 import utils.Analytics;
 
 import static utils.Analytics.calculateBMI;
+import static utils.Analytics.calculateBMINoAssess;
 
 /**
  * Created by Paddym1991 on 02/05/2017.
@@ -195,9 +196,21 @@ public class GymApi {
             String membersIdealWeight = "";
             for (int index = 0; index < members.size(); index++)
             {
-                if(Analytics.isIdealBodyWeight(members.get(index), members.get(index).latestAssessment()) == true)
+                //check to see if each member has at least one assessment
+                if(members.get(index).getAssessment().size() > 0) {
+
+                    //if member's weight based on their latest assessment is ideal their details will print to screen
+                    if (Analytics.isIdealBodyWeight(members.get(index), members.get(index).latestAssessment()))
+                    {
+                        membersIdealWeight = membersIdealWeight + members.get(index).toString() + "\n\n";
+                    }
+                }
+                else
                 {
-                    membersIdealWeight =  membersIdealWeight + members.get(index).toString() + "\n\n";
+                    if (Analytics.isIdealBodyWeightNoAssess(members.get(index)))
+                    {
+                        membersIdealWeight = membersIdealWeight + members.get(index).toString() + "\n\n";
+                    }
                 }
             }
             if(membersIdealWeight.equals(""))
@@ -259,9 +272,16 @@ public class GymApi {
             //Changed the above line of code to a For Each as it allows me to get rid of '.get(index)', thus making code shorter.
             for(Member member : members)
             {
-                if (Analytics.determineBMICategory(calculateBMI(member, member.latestAssessment())).contains(category))
+                if (member.getAssessment().size() > 0) {
+                    if (Analytics.determineBMICategory(calculateBMI(member, member.latestAssessment())).contains(category)) {
+                        membersBMICategory = membersBMICategory + Analytics.determineBMICategory(calculateBMI(member, member.latestAssessment())) + ":\n" + member.toString() + "\n\n";
+                    }
+                }
+                else
                 {
-                    membersBMICategory = membersBMICategory + member.toString() + "\n\n";
+                    if (Analytics.determineBMICategory(calculateBMINoAssess(member)).contains(category)) {
+                        membersBMICategory = membersBMICategory + Analytics.determineBMICategory(calculateBMINoAssess(member)) + ":\n" + member.toString() + "\n\n";
+                    }
                 }
             }
             if(membersBMICategory.equals(""))
@@ -295,6 +315,7 @@ public class GymApi {
      *     "There are no members in the gym" should be returned.
      *    </pre>
      */
+    /*
     public String listMemberDetailsImperialAndMetric()
     {
         if (members.size() > 0)
@@ -319,6 +340,7 @@ public class GymApi {
             return "There are no members in the gym";
         }
     }
+    */
 
     public void addAssessment(Assessment newAssessment)
     {
