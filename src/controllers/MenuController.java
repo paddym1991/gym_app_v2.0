@@ -294,6 +294,7 @@ public class MenuController {
                                         runProgressSubMenu(verifiedMember);
                                     }
                                 }
+                                break;
                             case 3:
                                 break;
                             default:
@@ -310,7 +311,6 @@ public class MenuController {
                     break;
             }
             System.out.println("\nPress Enter to continue. . .");
-            input.getStringInput();
             input.getStringInput();
             userOption = trainerMenu();
         }
@@ -341,7 +341,7 @@ public class MenuController {
         System.out.println("  5) View progress by waist measurement");
         System.out.println("  6) View progress by hips measurement");
         System.out.println("---------");
-        System.out.println("  0) Exit to Main Menu");
+        System.out.println("  0) Exit");
 
         return input.validNextInt("> ");
     }
@@ -352,19 +352,29 @@ public class MenuController {
             while (progressOption != 0) {
                 switch (progressOption) {
                     case 1:
+                        break;
                     case 2:
+                        break;
                     case 3:
+                        break;
                     case 4:
+                        break;
                     case 5:
+                        break;
                     case 6:
+                        break;
                     default:
-
+                        break;
                 }
+                System.out.println("\nPress Enter to continue. . .");
+                input.getStringInput();
+                progressOption = progressSubMenu();
             }
+            return;
         }
         else
         {
-            System.out.println("No assessments available for " + thisMember.getName());
+            System.out.println("\nNo assessments available for " + thisMember.getName());
         }
     }
 
