@@ -18,7 +18,7 @@ public class PremiumMember extends Member
     @Override
     public void chosenPackage(String packageChoice)
     {
-      //  super.chosenPackage = chosenPackage(packageChoice);
+      setChosenPackage(packageChoice);
     }
 
     public String toString()

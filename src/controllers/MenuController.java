@@ -3,7 +3,9 @@ package controllers;
 import models.*;
 import utils.ScannerInput;
 
+import java.util.*;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Paddym1991 on 03/05/2017.
@@ -13,25 +15,32 @@ public class MenuController {
     private ScannerInput input;
     private GymApi gym;
     private String trainerEmail;
+    private HashMap<String, String> chosenPackage = new HashMap<>();
+
+    public static void main(String[] args)
+    {
+        new MenuController();
+    }
 
     /**
      * <pre>
      * The default constructor. The constructor creates an instance of the Scanner class. It also asks the user to enter as a trainer and a member. These details are used to create an instance of the Gym. The final task in the constructor is to run the menu.
      * </pre>
      */
-    public MenuController()
+    private MenuController()
     {
         input = new ScannerInput();
         gym = new GymApi();
         this.trainerEmail = trainerEmail;
+
+        chosenPackage.put("Package 1", "Allowed access anytime to gym.\nFree access to all classes.  \nAccess to all changing areas including deluxe changing rooms.");
+        chosenPackage.put("Package 2", "Allowed access anytime to gym.\n€3 fee for all classes.  \nAccess to all changing areas including deluxe changing rooms.");
+        chosenPackage.put("Package 3", "Allowed access to gym at off-peak times.\n€5 fee for all classes.  \nNo access to deluxe changing rooms.");
+        chosenPackage.put("WIT", "Allowed access to gym during term time.\n€4 fee for all classes.  \nNo access to deluxe changing rooms.");
+
         runGymMenu();
     }
 
-    public static void main(String[] args)
-    {
-        MenuController menu = new MenuController();
-        menu.runGymMenu();
-    }
 
     private int gymMenu()
     {
@@ -350,9 +359,48 @@ public class MenuController {
         if (thisMember.getAssessment().size() > 0) {
             int progressOption = progressSubMenu();
             while (progressOption != 0) {
+
+                String progress = "";
+                switch (progressOption) {
+                    case 1: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                               // progress = progress + date + "\nWeight: " + thisMember.getAssessment().getWeight() + "kg\n";
+                            }
+                            System.out.println(progress);
+                        break;
+
+                /*
+                Map progress = thisMember.getAssessment();
+                Map<Date, Assessment> sortedMap = new TreeMap<>(Collections.reverseOrder());
+                Iterator<Map.Entry<Date, Assessment>> entries = newMap.entrySet().iterator();
                 switch (progressOption) {
                     case 1:
+                        System.out.println("Here is a view of your progress by weight: ");
+                        while (entries.hasNext()) {
+                            Map.Entry<Date, Assessment> entry = entries.next();
+                            System.out.println("Date: " + entry.getKey() + "\tWeight: " + entry.getValue().getWeight() + "Kg's");
+                        }
                         break;
+                        */
+                    /*
+                    Map<Date, Assessment> sortedMap = thisMember.getAssessment().descendingMap();
+                    switch (progressOption) {
+                        case 1:
+                    for (Map.Entry<Date, Assessment> entry : sortedMap.entrySet()) {
+                        System.out.println("Date : " + entry.getKey() + "\tWeight : " + entry.getValue().getWeight() + "kgs");
+                    }
+                    */
+
+                /*
+                Map progress = thisMember.getAssessment();
+                Map<Date, Assessment> map = new TreeMap<>(progress);
+
+                ArrayList<Integer> keys = new ArrayList<Integer>(thisMember.getAssessment().keySet());
+                for(int i=keys.size()-1; i>=0;i--){
+                    System.out.println(map.get(keys.get(i)));
+                }
+                break;
+                */
                     case 2:
                         break;
                     case 3:
@@ -470,7 +518,8 @@ public class MenuController {
                         System.out.println("Package successfully changed to " + thisMember.getChosenPackage());
                         break;
 
-                default:
+                default: System.out.println("\nInvalid option entered: " + updateOption);
+                    break;
             }
             System.out.println("\nPress Enter to continue. . .");
             input.getStringInput();
@@ -542,27 +591,47 @@ public class MenuController {
                 startingWeight = input.validNextDouble("Enter weight (between 35kg and 250kg): ");
             }
 
-            System.out.print("\tChosen Package: ");
-            String chosenPackage = input.getStringInput();
+            if (memberType.equals("P")) {
+                String chosenPackage = "";
+                int packageChoice = 0;
+                while (!((packageChoice == 1) || (packageChoice == 2) || (packageChoice == 3))) {
+                    packageChoice = input.validNextInt("\tChosen Package (1, 2 or 3): ");
+                    if (packageChoice == 1) {
+                        chosenPackage = "Package 1";
+                    } else if (packageChoice == 2) {
+                        chosenPackage = "Package 2";
+                    } else if (packageChoice == 3) {
+                        chosenPackage = "Package 3";
+                    } else System.out.println("Invalid Option: " + chosenPackage);
+                }
+
+                //if P was chosen, all details up to chosen package will be added to gym
+                gym.addMember(new PremiumMember(email, name, address, gender, height, startingWeight, chosenPackage));
+            }
 
             //If member type is student then user will give further information.
-            if (memberType.equals("S"))
+            else if (memberType.equals("S"))
             {
                 System.out.print("\tstudentId: ");
                 String studentId = input.getStringInput();
-                input.getStringInput();
 
-                System.out.print("\tCollege: ");
+                System.out.print("\tCollege (WIT, NUIG etc.): ");
                 String collegeName = input.getStringInput();
+
+                String chosenPackage = "";
+                if (collegeName.equals("WIT"))
+                {
+                    chosenPackage = "WIT";
+                }
+                else
+                {
+                    chosenPackage = "Package 3";
+                }
+                System.out.println("\tChosenPackage: " + chosenPackage);
                 input.getStringInput();
 
                 //All information inserted including student details are added.
                 gym.addMember(new StudentMember(email, name, address, gender, height, startingWeight, chosenPackage, studentId, collegeName));
-            }
-            else
-            {
-                //if P was chosen, all details up to chosen package will be added to gym
-                gym.addMember(new PremiumMember(email, name, address, gender, height, startingWeight, chosenPackage));
             }
         }
         else

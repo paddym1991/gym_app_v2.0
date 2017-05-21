@@ -102,10 +102,14 @@ public abstract class Member extends Person
         return assessment.get(sortedAssessmentDates().last());
     }
 
+    public Assessment previousAssessment() {
+        return assessment.get(sortedAssessmentDates().last());
+    }
+
     //TODO
     public SortedSet<Date> sortedAssessmentDates()
     {
-        SortedSet<Date> keys = new TreeSet<Date>(assessment.keySet());
+        SortedSet<Date> keys = new TreeSet<>(assessment.keySet());
         return keys;
     }
 

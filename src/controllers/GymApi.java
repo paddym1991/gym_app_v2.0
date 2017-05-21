@@ -1,5 +1,9 @@
 package controllers;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,6 +12,9 @@ import models.Member;
 import models.Person;
 import models.Trainer;
 import utils.Analytics;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import static utils.Analytics.calculateBMI;
 import static utils.Analytics.calculateBMINoAssess;
@@ -414,14 +421,21 @@ public class GymApi {
     }
 
 
-    public void load() throws Exception
-    {
-        //TODO
+    @SuppressWarnings("unchecked")
+    public void load() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("gym.xml"));
+        members = (ArrayList<Member>) is.readObject();
+        trainers = (ArrayList<Trainer>) is.readObject();
+        is.close();
     }
 
-    public void store() throws Exception
-    {
-        //TODO
+    public void store() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("gym.xml"));
+        out.writeObject(members);
+        out.writeObject(trainers);
+        out.close();
     }
 
 

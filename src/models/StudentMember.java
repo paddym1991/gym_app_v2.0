@@ -1,6 +1,5 @@
 package models;
 
-import java.util.HashMap;
 
 /**
  * Created by Paddym1991 on 02/05/2017.
@@ -45,7 +44,11 @@ public class StudentMember extends Member
     public void chosenPackage(String chosenPackage)
     {
         //TODO: Provides the concrete implementation for this method.  The chosenPackage is set to the package associated with their collegeName.  If there is no package associated with their college, default to “Package 3”.
-        chosenPackage = "WIT";
+        if (getCollegeName().toUpperCase().equals("WIT")) {
+            setChosenPackage("WIT");
+        }
+        else
+            setChosenPackage("Package 3");
     }
 
     public String toString()
