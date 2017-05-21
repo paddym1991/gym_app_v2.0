@@ -171,7 +171,7 @@ public class GymApi {
             String listOfMembers = "";
             for(int index = 0; index < members.size(); index++)
             {
-                listOfMembers = listOfMembers + index + ": " + members.get(index).toString() + "\n\n";
+                listOfMembers = listOfMembers + "\n" + index + ": " + members.get(index).toString() + "\n\n";
                 //listOfMembers = listOfMembers + member.toString() + "\n\n";
             }
             return listOfMembers;
@@ -430,7 +430,7 @@ public class GymApi {
         is.close();
     }
 
-    public void store() throws Exception {
+    public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("gym.xml"));
         out.writeObject(members);

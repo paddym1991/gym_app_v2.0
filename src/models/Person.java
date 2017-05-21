@@ -110,10 +110,10 @@ public abstract class Person
      */
     public String toString()
     {
-        return  "Email: " + email
-                + ", Name: " + name
-                + ", Address: " + address
-                + ".\n\tGender: " + gender;
+        return  "\nEmail: " + email
+                + "\tName: " + name
+                + "\tAddress: " + address
+                + "\tGender: " + gender;
     }
 
 

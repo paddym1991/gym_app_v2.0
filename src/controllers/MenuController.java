@@ -7,6 +7,16 @@ import java.util.*;
 import java.util.Date;
 import java.util.HashMap;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 /**
  * Created by Paddym1991 on 03/05/2017.
  */
@@ -62,6 +72,12 @@ public class MenuController {
 
     public void runGymMenu()
     {
+        try {
+            gym.load();
+            System.out.println("Loading Saved Details");
+        } catch (Exception e) {
+            System.err.println("Error reading from file: " + e);
+        }
         int userOption = gymMenu();
         while (userOption != 0)
         {
@@ -108,6 +124,12 @@ public class MenuController {
             userOption = gymMenu();
         }
         System.out.println("Exiting...bye");
+        try {
+            gym.save();
+            System.out.println("Saving Details to Gym");
+        } catch (Exception e) {
+            System.err.println("Error writing to fle: " + e);
+        }
         System.exit(0);
     }
 
@@ -153,6 +175,12 @@ public class MenuController {
             // input.nextLine();
             //input.nextLine();
             userOption = memberMenu();
+        }
+        try {
+            gym.save();
+            System.out.println("Saving Details to Gym");
+        } catch (Exception e) {
+            System.err.println("Error writing to fle: " + e);
         }
         runGymMenu();
     }
@@ -322,6 +350,12 @@ public class MenuController {
             System.out.println("\nPress Enter to continue. . .");
             input.getStringInput();
             userOption = trainerMenu();
+        }
+        try {
+            gym.save();
+            System.out.println("Saving Details to Gym");
+        } catch (Exception e) {
+            System.err.println("Error writing to fle: " + e);
         }
         runGymMenu();
     }

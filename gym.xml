@@ -1,0 +1,75 @@
+<object-stream>
+  <list>
+    <models.StudentMember>
+      <email>STU@DENT.IE</email>
+      <name>Stu Dent</name>
+      <address>College</address>
+      <gender>M</gender>
+      <height>1.5</height>
+      <startingWeight>50.0</startingWeight>
+      <chosenPackage>WIT</chosenPackage>
+      <assessment>
+        <entry>
+          <date>2017-05-21 17:20:13.178 UTC</date>
+          <models.Assessment>
+            <weight>49.5</weight>
+            <chest>40.0</chest>
+            <thigh>40.0</thigh>
+            <upperArm>40.0</upperArm>
+            <waist>40.0</waist>
+            <hips>40.0</hips>
+            <comment>Well Done keep it up.</comment>
+            <trainer>
+              <email>TRAI@NER.IE</email>
+              <name>Trai Ner</name>
+              <address>Gym</address>
+              <gender>M</gender>
+              <speciality>Training</speciality>
+            </trainer>
+          </models.Assessment>
+        </entry>
+      </assessment>
+      <studentId>566787ui</studentId>
+      <collegeName>WIT</collegeName>
+    </models.StudentMember>
+    <models.PremiumMember>
+      <email>TEST@TEST.TEST</email>
+      <name>Testy McTesterson</name>
+      <address>Testerstown</address>
+      <gender>F</gender>
+      <height>1.3</height>
+      <startingWeight>45.0</startingWeight>
+      <chosenPackage>Package 2</chosenPackage>
+      <assessment>
+        <entry>
+          <date>2017-05-21 17:24:30.161 UTC</date>
+          <models.Assessment>
+            <weight>45.0</weight>
+            <chest>20.0</chest>
+            <thigh>20.0</thigh>
+            <upperArm>20.0</upperArm>
+            <waist>20.0</waist>
+            <hips>20.0</hips>
+            <comment>Good job.</comment>
+            <trainer>
+              <email>TRAI@NER.IE</email>
+              <name>Trai Ner</name>
+              <address>Gym</address>
+              <gender>M</gender>
+              <speciality>Training</speciality>
+            </trainer>
+          </models.Assessment>
+        </entry>
+      </assessment>
+    </models.PremiumMember>
+  </list>
+  <list>
+    <models.Trainer>
+      <email>TRAI@NER.IE</email>
+      <name>Trai Ner</name>
+      <address>Gym</address>
+      <gender>M</gender>
+      <speciality>Training</speciality>
+    </models.Trainer>
+  </list>
+</object-stream>

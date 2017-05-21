@@ -130,8 +130,9 @@ public abstract class Member extends Person
     public String toString()
     {
         return super.toString() +
-          ".\n\tHeight: " + height
-                + " metres, Starting Weight: " + startingWeight + " Kgs";
+          ".\nHeight: " + height
+                + " metres\tStarting Weight: " + startingWeight + " Kgs"
+                + "\tChosen Package: " + chosenPackage;
     }
 
 }
