@@ -364,8 +364,11 @@ public class MenuController {
                 switch (progressOption) {
                     case 1: for (Date date : thisMember.sortedAssessmentDates())
                             {
-                               // progress = progress + date + "\nWeight: " + thisMember.getAssessment().getWeight() + "kg\n";
+                                //for (int index = thisMember.getAssessment().size() - 1; index < thisMember.getAssessment().size(); index++) {
+                                    progress = progress + "\n" + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n";
+                                //}
                             }
+                            progress = "\n" + "Starting Weight:" + thisMember.getStartingWeight() + "kg\n" + progress;
                             System.out.println(progress);
                         break;
 
@@ -383,7 +386,7 @@ public class MenuController {
                         break;
                         */
                     /*
-                    Map<Date, Assessment> sortedMap = thisMember.getAssessment().descendingMap();
+                    Map<Date, Assessment> sortedMap = thisMember.getAssessment().get(date).descendingMap();
                     switch (progressOption) {
                         case 1:
                     for (Map.Entry<Date, Assessment> entry : sortedMap.entrySet()) {
@@ -401,17 +404,35 @@ public class MenuController {
                 }
                 break;
                 */
-                    case 2:
+                    case 2: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                                progress = progress + "\n" + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "cm\n";
+                            }
+                            System.out.println(progress);
                         break;
-                    case 3:
+                    case 3: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                                progress = progress + "\n" + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "cm\n";
+                            }
+                            System.out.println(progress);
                         break;
-                    case 4:
+                    case 4: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                                progress = progress + "\n" + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "cm\n";
+                            }
+                            System.out.println(progress);
                         break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    default:
+                    case 5: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                                progress = progress + "\n" + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "cm\n";
+                            }
+                            System.out.println(progress);
+                    case 6: for (Date date : thisMember.sortedAssessmentDates())
+                            {
+                                progress = progress + "\n" + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "cm\n";
+                            }
+                            System.out.println(progress);
+                    default: System.out.println("\nInvalid option entered: " + progressOption);
                         break;
                 }
                 System.out.println("\nPress Enter to continue. . .");
