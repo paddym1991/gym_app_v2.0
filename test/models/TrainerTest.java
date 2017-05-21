@@ -48,18 +48,18 @@ class TrainerTest {
 
     @Test
     public void testGetName() throws Exception {
-        assertEquals("Timmy Timson", trainer1.getSpeciality());
-        assertEquals("Ruth Ruthson", trainer2.getSpeciality());
-        assertEquals("Email emailson", trainer3.getSpeciality());
-        assertEquals("Nice Guy", trainer4.getSpeciality());
+        assertEquals("Timmy Timson", trainer1.getName());
+        assertEquals("Ruth Ruthson", trainer2.getName());
+        assertEquals("Email emailson", trainer3.getName());
+        assertEquals("Nice Guy", trainer4.getName());
     }
 
     @Test
     public void testGetAddress() throws Exception {
-        assertEquals("Timmytown", trainer1.getSpeciality());
-        assertEquals("Ruthstown", trainer2.getSpeciality());
-        assertEquals("emailtown", trainer3.getSpeciality());
-        assertEquals("Nicetown", trainer4.getSpeciality());
+        assertEquals("Timmytown", trainer1.getAddress());
+        assertEquals("Ruthstown", trainer2.getAddress());
+        assertEquals("emailtown", trainer3.getAddress());
+        assertEquals("Nicetown", trainer4.getAddress());
     }
 
     @Test
@@ -113,11 +113,11 @@ class TrainerTest {
         trainer2.setGender("F");
         assertEquals("F", trainer2.getGender());
         trainer3.setGender("Female");
-        assertEquals("Unspecified", trainer3.getAddress());
+        assertEquals("Unspecified", trainer3.getGender());
         trainer4.setAddress("");
-        assertEquals("Unspecified", trainer4.getAddress());
+        assertEquals("Unspecified", trainer4.getGender());
         trainer4.setAddress("789");
-        assertEquals("Unspecified", trainer4.getAddress());
+        assertEquals("Unspecified", trainer4.getGender());
     }
 
 }
