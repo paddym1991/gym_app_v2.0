@@ -332,7 +332,14 @@ public class MenuController {
                                     }
                                 }
                                 break;
-                            case 3:
+                            case 3: if (gym.numberOfMembers() > 0) {
+                                        String allMembersToString = "";
+
+                                        for (Member member : gym.getMembers()) {
+                                            allMembersToString += member.toString() + hasLatestAssessments(member) + "\n\n";
+                                        }
+                                        System.out.println(allMembersToString);
+                                    }
                                 break;
                             default:
                                 System.out.println("\nInvalid option entered: " + reportOption);
@@ -399,10 +406,10 @@ public class MenuController {
                 switch (progressOption) {
                     case 1: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getStartingWeight()) + "kg";
+                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getStartingWeight()) + "kg\n";
                             //}
                         } else {
-                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getAssessment().get(currentDate).getWeight()) + "kg";
+                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getAssessment().get(currentDate).getWeight()) + "kg\n";
                         }
                     }
                             progress = "\n" + "Starting Weight:" + thisMember.getStartingWeight() + "kg\n" + progress;
@@ -410,45 +417,45 @@ public class MenuController {
                         break;
                     case 2: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: No previous assessment measurement to compare to";
+                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: No previous assessment measurement to compare to\n";
                         } else {
-                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getChest() - thisMember.getAssessment().get(currentDate).getChest()) + "kg";
+                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getChest() - thisMember.getAssessment().get(currentDate).getChest()) + "kg\n";
                         }
                     }
                         System.out.println(progress);
                         break;
                     case 3: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Thigh Change: No previous assessment measurement to compare to";
+                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Thigh Change: No previous assessment measurement to compare to\n";
                         } else {
-                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getThigh() - thisMember.getAssessment().get(currentDate).getThigh()) + "kg";
+                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getThigh() - thisMember.getAssessment().get(currentDate).getThigh()) + "kg\n";
                         }
                     }
                         System.out.println(progress);
                         break;
                     case 4: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: No previous assessment measurement to compare to";
+                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: No previous assessment measurement to compare to\n";
                         } else {
-                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: " + (thisMember.getAssessment().get(date).getUpperArm() - thisMember.getAssessment().get(currentDate).getUpperArm()) + "kg";
+                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: " + (thisMember.getAssessment().get(date).getUpperArm() - thisMember.getAssessment().get(currentDate).getUpperArm()) + "kg\n";
                         }
                     }
                         System.out.println(progress);
                         break;
                     case 5: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: No previous assessment measurement to compare to";
+                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: No previous assessment measurement to compare to\n";
                         } else {
-                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: " + (thisMember.getAssessment().get(date).getWaist() - thisMember.getAssessment().get(currentDate).getWaist()) + "kg";
+                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: " + (thisMember.getAssessment().get(date).getWaist() - thisMember.getAssessment().get(currentDate).getWaist()) + "kg\n";
                         }
                     }
                         System.out.println(progress);
                         break;
                     case 6: for (Date date : thisMember.sortedAssessmentDates()) {
                         if (currentDate == null) {
-                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: No previous assessment measurement to compare to";
+                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: No previous assessment measurement to compare to\n";
                         } else {
-                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: " + (thisMember.getAssessment().get(date).getHips() - thisMember.getAssessment().get(currentDate).getHips()) + "kg";
+                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: " + (thisMember.getAssessment().get(date).getHips() - thisMember.getAssessment().get(currentDate).getHips()) + "kg\n";
                         }
                     }
                         System.out.println(progress);
@@ -743,41 +750,18 @@ public class MenuController {
 
         //TODO: check to see whether assessment has been added
         System.out.println("Assessment for " + assessedMember.getName() + " successfully added.");
-
-            /*
-            Trainer trainer = gym.searchMembersTrainerEmail(trainerEmail);
-
-            Assessment newAssessment = new Assessment(weight, chest, thigh,
-                    upperArm, waist, hips, comment, trainer);
-
-            Date date = new Date();
-
-            gym.searchMembersByEmail(emailSearch).addAssessment(newAssessment);
-
-            //Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips, comment, trainer);
-*/
-/*
-        System.out.println("Trainer Name: ");
-        Trainer trainer = gym.getTrainers().get() searchTrainerEmail(trainerEmail).toString();
-
-        Assessment newAssessment = new Assessment(weight, chest, thigh,
-                upperArm, waist, hips, comment, gym.searchMembersTrainerEmail(trainerEmail));
-        Date date = new Date();
-        gym.searchMembersByEmail(emailSearch).addAssessment(date, newAssessment);
-*/
     }
 
-    //TODO: not sure whether to use this above or not
-    public String enterEmail()
-    {
-        String email = input.getStringInput();
-        while (gym.isActiveMemberEmail(email))
-        {
-            System.out.println("Email already exists\n");
-            System.out.println("Please enter another Email address:");
-            email = input.getStringInput();
+    private String hasLatestAssessments(Member thisMember){
+        String latestAssessment;
+        if(thisMember.getAssessment().size() > 0){
+            latestAssessment = "\n\nLATEST ASSESSMENT: \n"+ thisMember.latestAssessment();
         }
-        return email;
+        else{
+            latestAssessment = "\n\nNo Assessments";
+        }
+        return latestAssessment;
     }
+
 
 }
