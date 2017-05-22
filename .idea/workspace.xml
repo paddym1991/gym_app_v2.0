@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8152b929-9b77-458c-95f4-95f8926b1ed3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Person.java" afterPath="$PROJECT_DIR$/src/models/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/PremiumMemberTest.java" afterPath="$PROJECT_DIR$/test/models/PremiumMemberTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/StudentMemberTest.java" afterPath="$PROJECT_DIR$/test/models/StudentMemberTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/TrainerTest.java" afterPath="$PROJECT_DIR$/test/models/TrainerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/GymApi.java" afterPath="$PROJECT_DIR$/src/controllers/GymApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/controllers/MenuController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,6 +60,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GymApi.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="509">
+              <caret line="434" column="4" lean-forward="false" selection-start-line="434" selection-start-column="4" selection-end-line="434" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StudentMemberTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/models/StudentMemberTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GymApiTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GymApiTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/controllers/GymApiTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
+            <state relative-caret-position="218">
               <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,21 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Assessment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Assessment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+            <state relative-caret-position="-148">
+              <caret line="815" column="6" lean-forward="false" selection-start-line="815" selection-start-column="6" selection-end-line="815" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,14 +184,14 @@
         <option value="$PROJECT_DIR$/test/controllers/GymApiTest.java" />
         <option value="$PROJECT_DIR$/src/models/StudentMember.java" />
         <option value="$PROJECT_DIR$/src/models/PremiumMember.java" />
-        <option value="$PROJECT_DIR$/src/controllers/GymApi.java" />
         <option value="$PROJECT_DIR$/src/models/Assessment.java" />
         <option value="$PROJECT_DIR$/src/models/Member.java" />
-        <option value="$PROJECT_DIR$/src/controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/models/Person.java" />
         <option value="$PROJECT_DIR$/test/models/PremiumMemberTest.java" />
         <option value="$PROJECT_DIR$/test/models/StudentMemberTest.java" />
         <option value="$PROJECT_DIR$/test/models/TrainerTest.java" />
+        <option value="$PROJECT_DIR$/src/controllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/GymApi.java" />
       </list>
     </option>
   </component>
@@ -1022,7 +1022,7 @@
       <workItem from="1494674836074" duration="641000" />
       <workItem from="1495026937561" duration="3218000" />
       <workItem from="1495103430380" duration="2427000" />
-      <workItem from="1495276518500" duration="86881000" />
+      <workItem from="1495276518500" duration="87926000" />
     </task>
     <task id="LOCAL-00001" summary="Most classes created and setters and getters">
       <created>1493738322332</created>
@@ -1227,7 +1227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495428718385</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="junit &amp; javadoc">
+      <created>1495430247572</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1495430247572</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1263,7 +1270,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249840000" />
+    <option name="totallyTimeSpent" value="250885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1279,7 +1286,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31914893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1338,7 +1345,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved calculations to Analytics Class" />
     <MESSAGE value="Work on MenuController" />
     <MESSAGE value="Changes made to MenuController, Analytics and GymAPI" />
     <MESSAGE value="Changes made to Assessment" />
@@ -1363,7 +1369,8 @@
     <MESSAGE value="update to progress menu" />
     <MESSAGE value="update to reports menu" />
     <MESSAGE value="JavDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavDoc" />
+    <MESSAGE value="junit &amp; javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="junit &amp; javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1497,8 +1504,8 @@
           <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1745,14 +1752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Analytics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -1773,16 +1772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1845,10 +1834,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret line="815" column="6" lean-forward="false" selection-start-line="815" selection-start-column="6" selection-end-line="815" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/controllers/GymApiTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state relative-caret-position="218">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/GymApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="434" column="4" lean-forward="false" selection-start-line="434" selection-start-column="4" selection-end-line="434" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

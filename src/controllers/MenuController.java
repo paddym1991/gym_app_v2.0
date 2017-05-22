@@ -76,7 +76,9 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
-
+    /**
+     *
+     */
     public void runGymMenu()
     {
         try {
@@ -142,7 +144,7 @@ public class MenuController {
 
 
 
-    /*
+    /**
     *
     * memberMenu() - This method displays the members menu for the application,
     * reads the menu option that the user entered and returns it.
@@ -161,6 +163,10 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
+    /**
+     *
+     * @param thisMember
+     */
     private void runMemberMenu(Member thisMember)
     {
         int userOption = memberMenu();
@@ -192,7 +198,7 @@ public class MenuController {
         runGymMenu();
     }
 
-    /*
+    /**
     *
     * trainerMenu() - This method displays the trainers menu for the application,
     * reads the menu option that the user entered and returns it.
@@ -218,6 +224,10 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
+    /**
+     *
+     * @param thisTrainer
+     */
     private void runTrainerMenu(Trainer thisTrainer)
     {
         int userOption = trainerMenu();
@@ -374,6 +384,14 @@ public class MenuController {
         runGymMenu();
     }
 
+    /**
+     *
+     * reportSubMenu() - This method displays the report sub menu for the application,
+     * reads the menu option that the user entered and returns it.
+     *
+     *
+     * @return       the users menu choice
+     */
     private int reportSubMenu()
     {
         System.out.println("\fReport Sub Menu");
@@ -387,6 +405,14 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
+    /**
+     *
+     * progressSubMenu() - This method displays the progress sub menu for the application,
+     * reads the menu option that the user entered and returns it.
+     *
+     *
+     * @return       the users menu choice
+     */
     private int progressSubMenu()
     {
         System.out.println("\fProgress Sub Menu");
@@ -403,6 +429,10 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
+    /**
+     *
+     * @param thisMember
+     */
     private void runProgressSubMenu(Member thisMember) {
         if (thisMember.getAssessment().size() > 0) {
             int progressOption = progressSubMenu();
@@ -482,6 +512,14 @@ public class MenuController {
         }
     }
 
+    /**
+     *
+     * updateProfile() - This method displays the update profile menu for the application,
+     * reads the menu option that the user entered and returns it.
+     *
+     *
+     * @return       the users menu choice
+     */
     private int updateProfile()
     {
         System.out.println("\fUpdate Profile");
@@ -499,6 +537,10 @@ public class MenuController {
         return input.validNextInt("> ");
     }
 
+    /**
+     *
+     * @param thisMember
+     */
     private void runUpdateProfile(Member thisMember) {
         int updateOption = updateProfile();
         while (updateOption != 0)
@@ -584,6 +626,9 @@ public class MenuController {
         runMemberMenu(thisMember);
     }
 
+    /**
+     *
+     */
     private void addMember()
     {
         System.out.println("\nMEMBER REGISTRATION");
@@ -698,6 +743,9 @@ public class MenuController {
         System.out.println("\nMember successfully added!");
     }
 
+    /**
+     *
+     */
     private void addTrainer()
     {
         System.out.println("Please enter the following trainer details...");
@@ -733,6 +781,11 @@ public class MenuController {
         gym.addTrainer(new Trainer(email, name, address, gender, speciality));
     }
 
+    /**
+     *
+     * @param assessingTrainer
+     * @param assessedMember
+     */
     private void addAssessment(Trainer assessingTrainer, Member assessedMember)
     {
         System.out.println("New Assessment for: \n" + assessedMember.toString());
@@ -759,6 +812,11 @@ public class MenuController {
         System.out.println("Assessment for " + assessedMember.getName() + " successfully added.");
     }
 
+    /**
+     *
+     * @param thisMember
+     * @return
+     */
     private String hasLatestAssessments(Member thisMember){
         String latestAssessment;
         if(thisMember.getAssessment().size() > 0){
