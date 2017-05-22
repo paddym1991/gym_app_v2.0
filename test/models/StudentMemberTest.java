@@ -122,8 +122,8 @@ class StudentMemberTest {
     @Test
     public void testGetAddress() throws Exception {
         assertEquals("Studenttown1", studentMember1.getAddress());
-        assertEquals("Studenttown2", studentMember2.getHeight());
-        assertEquals("123 Well", studentMember3.getHeight());
+        assertEquals("Studenttown2", studentMember2.getAddress());
+        assertEquals("123 Well", studentMember3.getAddress());
     }
 
     @Test
@@ -138,9 +138,9 @@ class StudentMemberTest {
         studentMember1.setEmail("Peahead@g.com");
         assertEquals("PEAHEAD@G.COM", studentMember1.getEmail());
         studentMember2.setEmail("152gh@hg.bn");
-        assertEquals("152gh@hg.bn", studentMember2.getEmail());
+        assertEquals("152GH@HG.BN", studentMember2.getEmail());
         studentMember3.setEmail("fake@09.'/}");
-        assertEquals("fake@09.'/}", studentMember3.getEmail());
+        assertEquals("FAKE@09.'/}", studentMember3.getEmail());
     }
 
     @Test

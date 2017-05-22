@@ -102,7 +102,7 @@ public class Assessment {
                 + "\nWaist " + getWaist() + " Cms"
                 + "\nHips " + getHips() + " Cms"
                 + "\nComment: " + getComment() + " ."
-                + "\nTrainer: " + getTrainer() + " .";
+                + "\nTrainer: " + getTrainer().getName() + " .";
     }
 
 }
