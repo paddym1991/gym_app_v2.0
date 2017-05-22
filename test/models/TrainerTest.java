@@ -30,7 +30,7 @@ class TrainerTest {
         assertEquals("Training", trainer1.getSpeciality());
         assertEquals("Legs", trainer2.getSpeciality());
         assertEquals("Cardio", trainer3.getSpeciality());
-        assertEquals("Fingers and toes", trainer4.getSpeciality());
+        assertEquals("Fingers nad toes", trainer4.getSpeciality());
     }
 
     @Test
@@ -59,7 +59,7 @@ class TrainerTest {
         assertEquals("Timmytown", trainer1.getAddress());
         assertEquals("Ruthstown", trainer2.getAddress());
         assertEquals("emailtown", trainer3.getAddress());
-        assertEquals("Nicetown", trainer4.getAddress());
+        assertEquals("NiceTown, Niceville", trainer4.getAddress());
     }
 
     @Test
@@ -75,17 +75,17 @@ class TrainerTest {
         trainer1.setEmail("john@well.com");
         assertEquals("john@well.com", trainer1.getEmail());
         trainer2.setEmail("mary@well.com");
-        assertEquals("mary.well.com", trainer2.getEmail());
+        assertEquals("mary@well.com", trainer2.getEmail());
         trainer3.setEmail("imail@well.com");
         assertEquals("imail@well.com", trainer3.getEmail());
         trainer4.setEmail("baf@well.com");
-        assertEquals("bad@well.com", trainer4.getEmail());
+        assertEquals("baf@well.com", trainer4.getEmail());
     }
 
     @Test
     public void testSetName() throws Exception {
         trainer1.setName("Odd odderson");
-        assertEquals("Odd Odderson", trainer1.getName());
+        assertEquals("Odd odderson", trainer1.getName());
         trainer2.setName("qwertyuiopasdfghjklzxcvbnmqwer");
         assertEquals("qwertyuiopasdfghjklzxcvbnmqwer", trainer2.getName());
         trainer3.setName("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq1");

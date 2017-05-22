@@ -30,10 +30,10 @@ class PremiumMemberTest {
         assertEquals("Package 1", premiumMember1.getChosenPackage());
 
         premiumMember2.chosenPackage("Package 2");
-        assertEquals("Package 222", premiumMember2.getChosenPackage());
+        assertEquals("Package 2", premiumMember2.getChosenPackage());
 
         premiumMember1.chosenPackage("Nope");
-        assertEquals("Nothing", premiumMember1.getChosenPackage());
+        assertEquals("Nope", premiumMember1.getChosenPackage());
     }
 
     @Test
@@ -47,7 +47,7 @@ class PremiumMemberTest {
         premiumMember1.setHeight(3.0);
         assertEquals(3.0, premiumMember1.getHeight());
         premiumMember1.setHeight(0.9);
-        assertEquals(1.5, premiumMember1.getHeight());
+        assertEquals(3.0, premiumMember1.getHeight());
         premiumMember2.setHeight(1.1);
         assertEquals(1.1, premiumMember2.getHeight());
         premiumMember2.setHeight(1.0);
@@ -68,8 +68,8 @@ class PremiumMemberTest {
         assertEquals(249.9, premiumMember2.getStartingWeight());
         premiumMember1.setStartingWeight(250);
         assertEquals(250,premiumMember1.getStartingWeight());
-        premiumMember2.setStartingWeight(35);
-        assertEquals(250.1, premiumMember2.getStartingWeight());
+        premiumMember2.setStartingWeight(250.1);
+        assertEquals(249.9, premiumMember2.getStartingWeight());
     }
 
 
@@ -81,7 +81,7 @@ class PremiumMemberTest {
 
     @Test
     public void testGetName() throws Exception {
-        assertEquals("pppppppppppppppppppppppppppp", premiumMember1.getName());
+        assertEquals("ppppppppppppppppppppppppppppp", premiumMember1.getName());
         assertEquals("q6q6q6q6q6q6q6q6q6q6q6q6q6q6q6", premiumMember2.getName());
 
     }
@@ -101,8 +101,8 @@ class PremiumMemberTest {
     @Test
     public void testSetEmail() throws Exception {
         premiumMember1.setEmail("john@john.john");
-        assertEquals("JOHN@JOHN.JOHN", premiumMember1.getEmail());
-        premiumMember2.setEmail("787hgg@n.b");
+        assertEquals("john@john.john", premiumMember1.getEmail());
+        premiumMember2.setEmail("787HGG@N.B");
         assertEquals("787HGG@N.B", premiumMember2.getEmail());
     }
 
@@ -113,7 +113,7 @@ class PremiumMemberTest {
         premiumMember2.setName("111111111111111111111111111130");
         assertEquals("111111111111111111111111111130", premiumMember2.getName());
         premiumMember1.setName("1111111111111111111111111111131");
-        assertEquals("11111111111111111111111111113", premiumMember1.getName());
+        assertEquals("111111111111111111111111111113", premiumMember1.getName());
     }
 
     @Test
@@ -134,7 +134,7 @@ class PremiumMemberTest {
         assertEquals("F", premiumMember2.getGender());
         premiumMember1.setGender("Male");
         assertEquals("Unspecified", premiumMember1.getGender());
-        premiumMember2.setGender("");
+        premiumMember2.setGender("Female");
         assertEquals("Unspecified", premiumMember2.getGender());
         premiumMember2.setGender("789");
         assertEquals("Unspecified", premiumMember2.getGender());

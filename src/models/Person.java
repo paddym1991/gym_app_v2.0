@@ -94,6 +94,10 @@ public abstract class Person
         {
             this.gender = gender;
         }
+        else
+        {
+            this.gender = "Unspecified";
+        }
     }
 
 

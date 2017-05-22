@@ -65,7 +65,7 @@ class StudentMemberTest {
         studentMember1.chosenPackage("WIT");
         assertEquals("WIT", studentMember1.getChosenPackage());
         studentMember2.chosenPackage("Package 3");
-        assertEquals("Package 3", studentMember1.getChosenPackage());
+        assertEquals("Package 3", studentMember2.getChosenPackage());
         studentMember1.chosenPackage("WIT");
         assertEquals("WIT", studentMember1.getChosenPackage());
     }
@@ -101,8 +101,8 @@ class StudentMemberTest {
         assertEquals(249.9, studentMember3.getStartingWeight());
         studentMember1.setStartingWeight(250);
         assertEquals(250, studentMember1.getStartingWeight());
-        studentMember2.setStartingWeight(35);
-        assertEquals(250.1, studentMember2.getStartingWeight());
+        studentMember2.setStartingWeight(250.1);
+        assertEquals(35, studentMember2.getStartingWeight());
     }
 
     @Test
@@ -114,7 +114,7 @@ class StudentMemberTest {
 
     @Test
     public void testGetName() throws Exception {
-        assertEquals("pppppppppppppppppppppppppppp", studentMember1.getName());
+        assertEquals("ppppppppppppppppppppppppppppp", studentMember1.getName());
         assertEquals("q6q6q6q6q6q6q6q6q6q6q6q6q6q6q6", studentMember2.getName());
         assertEquals("000000000000000000000000000000", studentMember3.getName());
     }
@@ -122,8 +122,8 @@ class StudentMemberTest {
     @Test
     public void testGetAddress() throws Exception {
         assertEquals("Studenttown1", studentMember1.getAddress());
-        assertEquals("Studenttown2", studentMember2.getAddress());
-        assertEquals("123 Well", studentMember3.getAddress());
+        assertEquals("StudentTown2", studentMember2.getAddress());
+        assertEquals("123 Well Street", studentMember3.getAddress());
     }
 
     @Test
@@ -135,11 +135,11 @@ class StudentMemberTest {
 
     @Test
     public void testSetEmail() throws Exception {
-        studentMember1.setEmail("Peahead@g.com");
+        studentMember1.setEmail("PEAHEAD@G.COM");
         assertEquals("PEAHEAD@G.COM", studentMember1.getEmail());
-        studentMember2.setEmail("152gh@hg.bn");
+        studentMember2.setEmail("152GH@HG.BN");
         assertEquals("152GH@HG.BN", studentMember2.getEmail());
-        studentMember3.setEmail("fake@09.'/}");
+        studentMember3.setEmail("FAKE@09.'/}");
         assertEquals("FAKE@09.'/}", studentMember3.getEmail());
     }
 
