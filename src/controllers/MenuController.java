@@ -51,7 +51,14 @@ public class MenuController {
         runGymMenu();
     }
 
-
+    /**
+    *
+    * gymMenu() - This method displays the main menu for the application,
+    * reads the menu option that the user entered and returns it.
+    *
+    *
+    * @return       the users menu choice
+    */
     private int gymMenu()
     {
         //TODO: on app start automatically load gym data from xml file

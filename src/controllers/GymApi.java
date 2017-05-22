@@ -89,19 +89,33 @@ public class GymApi {
         return trainers;
     }
 
+    /**
+     * Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list.
+     * @param index
+     * @return boolean indicating if the index passed as a parameter is a valid index for the member’s array list
+     */
     //if the size of the members array is greater than the index and is not negative, then it is a valid index.
     public boolean isValidMemberIndex(int index)
     {
         return index >= 0 && index < numberOfMembers();
     }
 
+    /**
+     * Returns a boolean indicating if the index passed as a parameter is a valid index for the trainer’s array list.
+     * @param index
+     * @return boolean indicating if the index passed as a parameter is a valid index for the trainer’s array list.
+     */
     //if the size of the trainers array is greater than the index and is not negative, then it is a valid index.
     public boolean isValidTrainerIndex(int index)
     {
         return index >= 0 && index < numberOfTrainers();
     }
 
-    //TODO:
+    /**
+     * Returns the member object that matches the email entered.  If no member matches, return null.
+     * @param emailEntered
+     * @return member object that matches the email entered
+     */
     public Member searchMembersByEmail(String emailEntered)
     {
         Member memberFound = null;
@@ -113,7 +127,13 @@ public class GymApi {
         return memberFound;
     }
 
-    //TODO:
+    /**
+     * Returns a list of members whose name partially or entirely matches the entered name.
+     * If there are no members in the gym, return a message indicating this.
+     * If there are members in the gym, but none match the name entered, return a message indicating this also.
+     * @param nameEntered
+     * @return a list of members whose name partially or entirely matches the entered name.
+     */
     public String searchMembersByName(String nameEntered)
     {
         String membersFound = "";
@@ -141,7 +161,11 @@ public class GymApi {
         }
     }
 
-    //TODO:
+    /**
+     * Returns the trainer object that matches the email entered.  If no trainer matches, return null
+     * @param emailEntered
+     * @return the trainer object that matches the email entered
+     */
     public Trainer searchTrainersByEmail(String emailEntered)
     {
         Trainer trainerFound = null;
@@ -354,8 +378,11 @@ public class GymApi {
     //    searchMembersByEmail().addAssessment();
     }
 
-    //TODO:????????????????????????????????
-    //check to see if email entered already exists.
+    /**
+     * Returns a boolean indicating if the email passed as a parameter already exists in members array list
+     * @param email
+     * @return boolean indicating if the email passed as a parameter already exists in members array list
+     */
     public boolean isActiveMemberEmail(String email)
     {
         for (Member member : members)
@@ -366,6 +393,12 @@ public class GymApi {
     }
 
     //check to see if trainer email already exists
+
+    /**
+     * Returns a boolean indicating if the email passed as a parameter already exists in trainers array list
+     * @param email
+     * @return boolean indicating if the member email passed as a parameter already exists in members array list
+     */
     public boolean isActiveTrainerEmail(String email)
     {
         for (Trainer trainer : trainers)
@@ -375,52 +408,10 @@ public class GymApi {
         return false;
     }
 
-    public String searchMemberEmail(String emailSearch)
-    {
-        for (Member member : members)
-        {
-            if (member.getEmail().equals(emailSearch)) return member.toString();
-        }
-        return "\nThere are no members matching this email";
-    }
-
-    public String searchMemberName(String nameSearch)
-    {
-        for (Member member : members)
-        {
-            if (member.getName().equals(nameSearch)) return member.toString();
-        }
-        return "\nThere are no members matching this name";
-    }
-
-    public String searchTrainerEmail(String emailSearch)
-    {
-        for (Trainer trainer : trainers)
-        {
-            if (trainer.getEmail().equals(emailSearch)) return trainer.toString();
-        }
-        return "\nThere are no members matching this email";
-    }
-
-    public Trainer searchMembersTrainerEmail(String trainerEmail)
-    {
-        for (Trainer trainer : trainers)
-        {
-            if (trainer.getEmail().equals(trainerEmail)) return trainer;
-        }
-        return null;
-    }
-
-    public Member searchMembersbyEmail(String emailSearch)
-    {
-        for (Member member : members)
-        {
-            if (member.getEmail().equals(emailSearch)) return member;
-        }
-        return null;
-    }
-
-
+    /**
+     * Read the associated XML file and pop the members and trainers into their associated array lists.
+     * @throws Exception
+     */
     @SuppressWarnings("unchecked")
     public void load() throws Exception {
         XStream xstream = new XStream(new DomDriver());
@@ -430,6 +421,10 @@ public class GymApi {
         is.close();
     }
 
+    /**
+     * Push the members and trainers array lists out to the associated XML file.
+     * @throws Exception
+     */
     public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("gym.xml"));

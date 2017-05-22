@@ -16,7 +16,17 @@ public abstract class Member extends Person
     private HashMap<Date, Assessment> assessment = new HashMap<>(); //TODO: sort this out
 
 
-
+    /**
+     * Member Class Constructor
+     *
+     * @param email
+     * @param name
+     * @param address
+     * @param gender
+     * @param height
+     * @param startingWeight
+     * @param chosenPackage
+     */
     public Member(String email, String name, String address, String gender, double height, double startingWeight, String chosenPackage)
     {
         super(email, name, address, gender);
@@ -45,6 +55,10 @@ public abstract class Member extends Person
         //this.assessment = new HashMap<>();
     }
 
+    /**
+     * Returns member's height in metres
+     * @return member's height in metres
+     */
     public double getHeight()
     {
         return height;
@@ -82,6 +96,10 @@ public abstract class Member extends Person
         this.chosenPackage = chosenPackage;
     }
 
+    /**
+     * Returns a hash map of the assessments
+     * @return hash map of the assessments
+     */
     public HashMap<Date, Assessment> getAssessment() {
         return assessment;
     }
@@ -96,7 +114,10 @@ public abstract class Member extends Person
         assessment.put(new Date(), newAssessment);
     }
 
-
+    /**
+     * Returns the latest assessment based on last entry (by calendar date).
+     * @return the latest assessment based on last entry (by calendar date).
+     */
     public Assessment latestAssessment()
     {
         return assessment.get(sortedAssessmentDates().last());
@@ -106,14 +127,20 @@ public abstract class Member extends Person
         return assessment.get(sortedAssessmentDates().last());
     }
 
-    //TODO
+    /**
+     * Returns the assessments dates sorted in date order.
+     * @return Returns the assessments dates sorted in date order.
+     */
     public SortedSet<Date> sortedAssessmentDates()
     {
         SortedSet<Date> keys = new TreeSet<>(assessment.keySet());
         return keys;
     }
 
-    //The concrete implementation of this method will be completed in Member subclasses.
+    /**
+     * The concrete implementation of this method will be completed in Member subclasses.
+     * @param chosenPackage
+     */
     public abstract void chosenPackage(String chosenPackage);
 
     /**
