@@ -28,6 +28,25 @@
             </trainer>
           </models.Assessment>
         </entry>
+        <entry>
+          <date>2017-05-22 02:47:37.922 UTC</date>
+          <models.Assessment>
+            <weight>48.0</weight>
+            <chest>30.0</chest>
+            <thigh>30.0</thigh>
+            <upperArm>30.0</upperArm>
+            <waist>30.0</waist>
+            <hips>30.0</hips>
+            <comment>Keep it up.</comment>
+            <trainer>
+              <email>TRAI@NER.IE</email>
+              <name>Trai Ner</name>
+              <address>Gym</address>
+              <gender>M</gender>
+              <speciality>Training</speciality>
+            </trainer>
+          </models.Assessment>
+        </entry>
       </assessment>
       <studentId>566787ui</studentId>
       <collegeName>WIT</collegeName>

@@ -395,77 +395,64 @@ public class MenuController {
             while (progressOption != 0) {
 
                 String progress = "";
+                Date currentDate = null;
                 switch (progressOption) {
-                    case 1: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                //for (int index = thisMember.getAssessment().size() - 1; index < thisMember.getAssessment().size(); index++) {
-                                    progress = progress + "\n" + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n";
-                                //}
-                            }
+                    case 1: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getStartingWeight()) + "kg";
+                            //}
+                        } else {
+                            progress += "\nDate: " + date + "\nWeight: " + thisMember.getAssessment().get(date).getWeight() + "kg\n" + "Weight Change: " + (thisMember.getAssessment().get(date).getWeight() - thisMember.getAssessment().get(currentDate).getWeight()) + "kg";
+                        }
+                    }
                             progress = "\n" + "Starting Weight:" + thisMember.getStartingWeight() + "kg\n" + progress;
                             System.out.println(progress);
                         break;
-
-                /*
-                Map progress = thisMember.getAssessment();
-                Map<Date, Assessment> sortedMap = new TreeMap<>(Collections.reverseOrder());
-                Iterator<Map.Entry<Date, Assessment>> entries = newMap.entrySet().iterator();
-                switch (progressOption) {
-                    case 1:
-                        System.out.println("Here is a view of your progress by weight: ");
-                        while (entries.hasNext()) {
-                            Map.Entry<Date, Assessment> entry = entries.next();
-                            System.out.println("Date: " + entry.getKey() + "\tWeight: " + entry.getValue().getWeight() + "Kg's");
+                    case 2: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: No previous assessment measurement to compare to";
+                        } else {
+                            progress += "\nDate: " + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getChest() - thisMember.getAssessment().get(currentDate).getChest()) + "kg";
                         }
-                        break;
-                        */
-                    /*
-                    Map<Date, Assessment> sortedMap = thisMember.getAssessment().get(date).descendingMap();
-                    switch (progressOption) {
-                        case 1:
-                    for (Map.Entry<Date, Assessment> entry : sortedMap.entrySet()) {
-                        System.out.println("Date : " + entry.getKey() + "\tWeight : " + entry.getValue().getWeight() + "kgs");
                     }
-                    */
-
-                /*
-                Map progress = thisMember.getAssessment();
-                Map<Date, Assessment> map = new TreeMap<>(progress);
-
-                ArrayList<Integer> keys = new ArrayList<Integer>(thisMember.getAssessment().keySet());
-                for(int i=keys.size()-1; i>=0;i--){
-                    System.out.println(map.get(keys.get(i)));
-                }
-                break;
-                */
-                    case 2: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                progress = progress + "\n" + date + "\nChest: " + thisMember.getAssessment().get(date).getChest() + "cm\n";
-                            }
-                            System.out.println(progress);
+                        System.out.println(progress);
                         break;
-                    case 3: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                progress = progress + "\n" + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "cm\n";
-                            }
-                            System.out.println(progress);
+                    case 3: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Thigh Change: No previous assessment measurement to compare to";
+                        } else {
+                            progress += "\nDate: " + date + "\nThigh: " + thisMember.getAssessment().get(date).getThigh() + "kg\n" + "Chest Change: " + (thisMember.getAssessment().get(date).getThigh() - thisMember.getAssessment().get(currentDate).getThigh()) + "kg";
+                        }
+                    }
+                        System.out.println(progress);
                         break;
-                    case 4: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                progress = progress + "\n" + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "cm\n";
-                            }
-                            System.out.println(progress);
+                    case 4: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: No previous assessment measurement to compare to";
+                        } else {
+                            progress += "\nDate: " + date + "\nUpper Arm: " + thisMember.getAssessment().get(date).getUpperArm() + "kg\n" + "Upper Arm Change: " + (thisMember.getAssessment().get(date).getUpperArm() - thisMember.getAssessment().get(currentDate).getUpperArm()) + "kg";
+                        }
+                    }
+                        System.out.println(progress);
                         break;
-                    case 5: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                progress = progress + "\n" + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "cm\n";
-                            }
-                            System.out.println(progress);
-                    case 6: for (Date date : thisMember.sortedAssessmentDates())
-                            {
-                                progress = progress + "\n" + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "cm\n";
-                            }
-                            System.out.println(progress);
+                    case 5: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: No previous assessment measurement to compare to";
+                        } else {
+                            progress += "\nDate: " + date + "\nWaist: " + thisMember.getAssessment().get(date).getWaist() + "kg\n" + "Waist Change: " + (thisMember.getAssessment().get(date).getWaist() - thisMember.getAssessment().get(currentDate).getWaist()) + "kg";
+                        }
+                    }
+                        System.out.println(progress);
+                        break;
+                    case 6: for (Date date : thisMember.sortedAssessmentDates()) {
+                        if (currentDate == null) {
+                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: No previous assessment measurement to compare to";
+                        } else {
+                            progress += "\nDate: " + date + "\nHips: " + thisMember.getAssessment().get(date).getHips() + "kg\n" + "Hips Change: " + (thisMember.getAssessment().get(date).getHips() - thisMember.getAssessment().get(currentDate).getHips()) + "kg";
+                        }
+                    }
+                        System.out.println(progress);
+                        break;
                     default: System.out.println("\nInvalid option entered: " + progressOption);
                         break;
                 }
