@@ -30,7 +30,7 @@ class AssessmentTest {
     }
 
     @Test
-    void testGetWeight() {
+    void testGetWeight() throws Exception {
         assertEquals(105.6, assessment1.getWeight());
         assertEquals(50, assessment2.getWeight());
     }

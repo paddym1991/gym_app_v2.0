@@ -25,7 +25,7 @@ class PremiumMemberTest {
     }
 
     @Test
-    void testChosenPackage() {
+    void testChosenPackage() throws Exception {
         premiumMember1.chosenPackage("Package 1");
         assertEquals("Package 1", premiumMember1.getChosenPackage());
 

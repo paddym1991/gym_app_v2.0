@@ -23,7 +23,7 @@ class StudentMemberTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown() throws Exception {
     }
 
     @Test
