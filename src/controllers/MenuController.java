@@ -302,7 +302,7 @@ public class MenuController {
                                 }
                                 else
                                 {
-                                    System.out.println("Update Comment for: \n" + commentMember.latestAssessment());
+                                    System.out.println("Update Comment for: " + commentMember.getName() + "\n" + commentMember.latestAssessment());
                                     System.out.println("Enter updated comment: ");
                                     String commentUpdate = input.getStringInput();
 
@@ -317,7 +317,7 @@ public class MenuController {
                             input.getStringInput();
                         }
                     break;
-                case 8: //TODO: reports sub-menu
+                case 8:
                     int reportOption = reportSubMenu();
                     while (reportOption != 0)
                     {
